@@ -212,6 +212,21 @@
     const dirApply = document.getElementById("dirApply");
     const downloadAllBtn = document.getElementById("downloadAllBtn");
 
+    const STATISCHE_VERZEICHNISSE = {
+      "calliope/stabler": [
+        "Arm_links.stl",
+        "Arm_recht.stl",
+        "Gabel.stl",
+        "Gabel_Halter.stl",
+        "Grundplatte.stl",
+        "Servo_Halter.stl"
+      ],
+      "arduino-uno/bsp": [
+        "Handy-1.stl",
+        "Handy.stl"
+      ]
+    };
+
     function erstelleBasisSzene(canvas) {
       const scene = new THREE.Scene();
       scene.background = new THREE.Color(0x0f172a);
@@ -419,25 +434,58 @@
 
       listeStatus.textContent = `Verzeichnis: ${dirUrl.pathname}`;
 
-      const response = await fetch(dirUrl.href);
-      if (!response.ok) {
-        throw new Error(`Verzeichnis konnte nicht geladen werden (${response.status}).`);
+      // 1. files.json oder index.json im Verzeichnis abrufen (z. B. auf GitHub Pages)
+      const jsonKandidaten = ["files.json", "index.json"];
+      for (const jsonDatei of jsonKandidaten) {
+        try {
+          const jsonUrl = new URL(jsonDatei, dirUrl.href);
+          const res = await fetch(jsonUrl.href);
+          if (res.ok) {
+            const data = await res.json();
+            const dateien = Array.isArray(data) ? data : (Array.isArray(data.files) ? data.files : []);
+            const stlDateien = dateien.filter(f => typeof f === "string" && /\.stl$/i.test(f));
+            if (stlDateien.length > 0) {
+              return stlDateien.map(dateiname => ({
+                name: decodeURIComponent(dateiname.split("/").pop() || dateiname).replace(/\.stl$/i, ""),
+                path: new URL(dateiname, dirUrl.href).href
+              })).sort((a, b) => a.name.localeCompare(b.name, "de", { sensitivity: "base" }));
+            }
+          }
+        } catch (_) {}
       }
 
-      const html = await response.text();
-      const doc = new DOMParser().parseFromString(html, "text/html");
+      // 2. Vordefiniertes Verzeichnis (Fallback für bekannte Ordner auf statischen Hostern)
+      if (STATISCHE_VERZEICHNISSE[dir]) {
+        return STATISCHE_VERZEICHNISSE[dir].map(dateiname => ({
+          name: decodeURIComponent(dateiname.split("/").pop() || dateiname).replace(/\.stl$/i, ""),
+          path: new URL(dateiname, dirUrl.href).href
+        })).sort((a, b) => a.name.localeCompare(b.name, "de", { sensitivity: "base" }));
+      }
 
-      const modelle = Array.from(doc.querySelectorAll("a[href]"))
-        .map(a => a.getAttribute("href") || "")
-        .filter(href => /\.stl$/i.test(href))
-        .map(href => {
-          const absolute = new URL(href, dirUrl.href).href;
-          const name = decodeURIComponent(href.split("/").pop() || href).replace(/\.stl$/i, "");
-          return { name, path: absolute };
-        })
-        .sort((a, b) => a.name.localeCompare(b.name, "de", { sensitivity: "base" }));
+      // 3. HTML-Directory-Listing (funktioniert z. B. auf lokalem Python-Webserver)
+      try {
+        const response = await fetch(dirUrl.href);
+        if (response.ok) {
+          const html = await response.text();
+          const doc = new DOMParser().parseFromString(html, "text/html");
 
-      return modelle;
+          const modelle = Array.from(doc.querySelectorAll("a[href]"))
+            .map(a => a.getAttribute("href") || "")
+            .filter(href => /\.stl$/i.test(href))
+            .map(href => {
+              const absolute = new URL(href, dirUrl.href).href;
+              const name = decodeURIComponent(href.split("/").pop() || href).replace(/\.stl$/i, "");
+              return { name, path: absolute };
+            })
+            .sort((a, b) => a.name.localeCompare(b.name, "de", { sensitivity: "base" }));
+
+          if (modelle.length > 0) {
+            return modelle;
+          }
+        }
+      } catch (_) {}
+
+      throw new Error(`Keine STL-Dateien im Verzeichnis ${dir} gefunden.`);
     }
 
     async function ladeReadmeAlsHtml(dirParameter) {
