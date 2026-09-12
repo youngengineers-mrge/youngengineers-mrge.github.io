@@ -4,6 +4,18 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 12.09.2026, 10:11:15 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`d7929f4`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/d7929f4d297ea68cddb9b736e49d13de3a730da6)
+- **Commit-Beschreibung:** fix(3d-drucker): Statisches Laden von STL-Dateien auf GitHub Pages sicherstellen
+- **Geänderte Dateien:**
+  - <code>themen/3d-drucker/modelle/arduino-uno/bsp/files.json</code>
+  - <code>themen/3d-drucker/modelle/calliope/stabler/files.json</code>
+  - <code>themen/3d-drucker/modelle/stl-view.html</code>
+
+
 ## 02.09.2026, 06:54:14 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
