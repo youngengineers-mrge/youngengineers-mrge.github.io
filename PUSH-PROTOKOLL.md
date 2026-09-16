@@ -4,6 +4,22 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 16.09.2026, 10:44:16 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`f63980b`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/f63980b77a6258fec5e2a53bd46837b234f587aa)
+- **Commit-Beschreibung:** feat(tinkercad): Minecraft-Projekt ergänzen
+- **Geänderte Dateien:**
+  - <code>themen/tinkercad/minecraft/auftrag.md</code>
+  - <code>themen/tinkercad/minecraft/bilder/bild_1.gif</code>
+  - <code>themen/tinkercad/minecraft/bilder/bild_2.png</code>
+  - <code>themen/tinkercad/minecraft/bilder/bild_3.png</code>
+  - <code>themen/tinkercad/minecraft/bilder/bild_4.png</code>
+  - <code>themen/tinkercad/minecraft/hinweis-4-lehrkraft.md</code>
+  - <code>themen/tinkercad/minecraft/index.html</code>
+
+
 ## 16.09.2026, 10:16:13 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
