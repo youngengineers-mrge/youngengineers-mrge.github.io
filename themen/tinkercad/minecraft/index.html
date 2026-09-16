@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinkercad meets Minecraft</title>
+    <meta name="author" content="Andreas Sigismund">
+
+    <meta name="project" content="AG Minecraft/Young Engineers">
+    <link rel="stylesheet" href="../../../css/my.css">
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+      .text-image-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(180px, 280px);
+        gap: 24px;
+        align-items: start;
+      }
+      .text-image-row p {
+        margin-top: 0;
+      }
+      .image-link {
+        display: block;
+      }
+      .image-link img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--border);
+      }
+      @media (max-width: 650px) {
+        .text-image-row {
+          grid-template-columns: 1fr;
+        }
+        .image-link {
+          width: min(100%, 280px);
+        }
+      }
+    </style>
+</head>
+<body>
+<header>
+  <h1>Tinkercad meets Minecraft</h1>
+</header>
+<main>
+  <section>
+    <h2>Vom 3D-Entwurf zu Minecraft</h2>
+    <p>Im Bereich »3D-Entwurf« lassen sich eigene Modelle gestalten und anschließend für Minecraft exportieren.</p>
+  </section>
+  <section>
+    <h2>Modell erstellen</h2>
+    <div class="text-image-row">
+      <p>Das 3D-Modell umfasst drei rote Quader. Jeder ist 11 mm hoch, 11 mm breit und 11 mm tief.<br>
+      Die vordere linke Ecke des linken Quaders liegt im Koordinatenursprung. Die anderen beiden Quader sind entlang der X-Achse jeweils um 3 mm und zusätzlich nach hinten versetzt.</p>
+      <a class="image-link" href="bilder/bild_1.gif" target="_blank" rel="noopener" title="Bild in voller Größe öffnen">
+        <img src="bilder/bild_1.gif" alt="Tinkercad-Arbeitsfläche mit drei roten Quadern">
+      </a>
+    </div>
+  </section>
+  <section>
+    <h2>Blockdarstellung prüfen</h2>
+    <div class="text-image-row">
+      <p>In der Darstellung »Blöcke« werden die Quader als Minecraft-Blöcke angezeigt.<br>
+      Das ergibt aktuell eine schwer verständliche Darstellung der drei Quader.<br>
+      Dazu kommen die grüne Platte und ein kleines Bäumchen.<br>
+      Die Darstellung erfolgt in einfacher Entwurfsgröße.</p>
+      <a class="image-link" href="bilder/bild_2.png" target="_blank" rel="noopener" title="Bild in voller Größe öffnen">
+        <img src="bilder/bild_2.png" alt="Tinkercad-Blockansicht in einfacher Entwurfsgröße mit grüner Bodenplatte sowie roten und grünen Blöcken">
+      </a>
+    </div>
+  </section>
+  <section>
+    <h2>Modell exportieren</h2>
+    <div class="text-image-row">
+      <p>Das Modell wird aus Tinkercad als Schematic-Datei für Minecraft exportiert.</p>
+      <a class="image-link" href="bilder/bild_3.png" target="_blank" rel="noopener" title="Bild in voller Größe öffnen">
+        <img src="bilder/bild_3.png" alt="Windows-Dialog zum Speichern des Tinkercad-Entwurfs als Schematic-Datei">
+      </a>
+    </div>
+  </section>
+  <section>
+    <h2>Modell in Minecraft verwenden</h2>
+    <div class="text-image-row">
+      <p>Die exportierte Schematic-Datei kann anschließend in einer Minecraft-Welt platziert werden.</p>
+      <a class="image-link" href="bilder/bild_4.png" target="_blank" rel="noopener" title="Bild in voller Größe öffnen">
+        <img src="bilder/bild_4.png" alt="Aus Tinkercad exportiertes Blockmodell in einer Minecraft-Welt">
+      </a>
+    </div>
+  </section>
+</main>
+<footer>
+  © Andreas Sigismund · AG Young Engineers · Martin-Rinckart-Gymnasium Eilenburg<br>
+  Letzte Änderung: <span id="lastModified">TT.MM.JJJJ, hh:mm Uhr</span>
+  <script src="../../../js/script.js"></script>
+</footer>
+</body>
+</html>
