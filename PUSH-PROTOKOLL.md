@@ -4,6 +4,21 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 17.09.2026, 13:26:21 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`75b3bae`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/75b3baee6836c3c47ae65054c65619796a098eac)
+- **Commit-Beschreibung:** Minecraft-Schematic-Downloads ergänzen
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/UltimMC_AG_Zusammenfassung.md</code>
+  - <code>themen/minecraft/index.html</code>
+  - <code>themen/minecraft/kleine_burg_minecraft_26_2_anleitung.md</code>
+  - <code>themen/minecraft/schematic/kleine_burg_minecraft_26_2.schem</code>
+  - <code>themen/minecraft/schematic/mittelalterliche_burg_wassergraben_26_2.schem</code>
+  - <code>themen/minecraft/schematic/mittlere_burg_verzweigt_26_2.schem</code>
+
+
 ## 16.09.2026, 20:44:44 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
