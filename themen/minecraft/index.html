@@ -24,18 +24,113 @@
   </header>
   <main>
     <section>
-      <h2>Tinkercad meets Minecraft</h2>
-      <p>Eigene 3D-Modelle werden in Tinkercad entworfen, als Schematic-Datei exportiert und anschließend in einer Minecraft-Welt verwendet.</p>
-      <p><a href="../tinkercad/minecraft/index.html">Projekt öffnen</a></p>
-      <a href="../tinkercad/minecraft/index.html" aria-label="Projekt Tinkercad meets Minecraft öffnen">
+      <h2>
         <img class="topic-image" src="bilder/minecraft-quer.png" alt="Programmieren, Konstruieren und Automatisieren in einer Minecraft-Welt">
-      </a>
+      </h2>
+    </section>
+    <section>
+        <a href="../tinkercad/minecraft/index.html" aria-label="Tinkercad meets Minecraft">
+        Tinkercad meets Minecraft</a>
+        <p>Eigene 3D-Modelle werden in Tinkercad entworfen, als <strong>.schematic</strong>-Datei exportiert und anschließend in einer Minecraft-Welt verwendet.</p>
+
+        <a href="/tools/md-viewer.html?file=/themen/minecraft/kleine_burg_minecraft_26_2_anleitung.md&amp;title=schematic-Datei einfügen" aria-label="UltimMC Zusammenfassung">
+        <strong>.schematic</strong>-Datei in eine Minecraft-Welt einfügen</a>
+        <p>Eine <strong>.schematic</strong>-Datei kann in Minecraft mit der Mod "WorldEdit" eingefügt werden.</p>
+    </section>
+    <section>
+      <h2>Schematic-Dateien</h2>
+      <p>Vorhandene Dateien zum Herunterladen:</p>
+      <ul id="schematic-downloads" aria-live="polite">
+        <li>Dateiliste wird geladen ...</li>
+      </ul>
+    </section>
+    <section>
+      <a href="/tools/md-viewer.html?file=/themen/minecraft/UltimMC_AG_Zusammenfassung.md&amp;title=UltimMC%20Zusammenfassung" aria-label="UltimMC Zusammenfassung">
+        Zur Nutzung von UltimMC</a>
     </section>
   </main>
   <footer>
     Erstellt mit GitHub Copilot · Fachliche Prüfung und Veröffentlichung: Andreas Sigismund<br>
     AG Young Engineers · Martin-Rinckart-Gymnasium Eilenburg<br>
     Letzte Änderung: <span id="lastModified">TT.MM.JJJJ, hh:mm Uhr</span>
+    <script>
+      (async function ladeSchematicDownloads() {
+        const liste = document.getElementById('schematic-downloads');
+        const apiUrl = 'https://api.github.com/repos/youngengineers-mrge/youngengineers-mrge.github.io/contents/themen/minecraft/schematic';
+        const downloadOrdner = './schematic/';
+
+        function zeigeDateien(dateinamen) {
+          liste.replaceChildren();
+
+          if (dateinamen.length === 0) {
+            const listenpunkt = document.createElement('li');
+            listenpunkt.textContent = 'Keine Dateien vorhanden.';
+            liste.appendChild(listenpunkt);
+            return;
+          }
+
+          dateinamen
+            .sort((a, b) => a.localeCompare(b, 'de', { numeric: true }))
+            .forEach((dateiname) => {
+              const listenpunkt = document.createElement('li');
+              const link = document.createElement('a');
+              link.href = downloadOrdner + encodeURIComponent(dateiname);
+              link.download = dateiname;
+              link.textContent = dateiname;
+              listenpunkt.appendChild(link);
+              liste.appendChild(listenpunkt);
+            });
+        }
+
+        async function ladeVonGithub() {
+          const antwort = await fetch(apiUrl, { headers: { Accept: 'application/vnd.github+json' } });
+          if (!antwort.ok) {
+            throw new Error('GitHub API antwortet mit Status ' + antwort.status);
+          }
+
+          const eintraege = await antwort.json();
+          return eintraege
+            .filter((eintrag) => eintrag.type === 'file')
+            .map((eintrag) => eintrag.name);
+        }
+
+        async function ladeAusLokalerVerzeichnisliste() {
+          const ordnerUrl = new URL(downloadOrdner, window.location.href);
+          const antwort = await fetch(ordnerUrl.href, { cache: 'no-store' });
+          if (!antwort.ok) {
+            throw new Error('Verzeichnis antwortet mit Status ' + antwort.status);
+          }
+
+          const dokument = new DOMParser().parseFromString(await antwort.text(), 'text/html');
+          return Array.from(dokument.querySelectorAll('a[href]'))
+            .map((link) => new URL(link.getAttribute('href'), ordnerUrl.href))
+            .filter((url) => url.pathname.substring(0, url.pathname.lastIndexOf('/') + 1) === ordnerUrl.pathname)
+            .map((url) => decodeURIComponent(url.pathname.split('/').pop()))
+            .filter(Boolean);
+        }
+
+        const istGithubPages = window.location.hostname === 'youngengineers-mrge.github.io';
+
+        try {
+          const dateien = istGithubPages
+            ? await ladeVonGithub()
+            : await ladeAusLokalerVerzeichnisliste();
+          zeigeDateien(dateien);
+        } catch (primaerFehler) {
+          try {
+            const dateien = istGithubPages
+              ? await ladeAusLokalerVerzeichnisliste()
+              : await ladeVonGithub();
+            zeigeDateien(dateien);
+          } catch (verzeichnisFehler) {
+            const listenpunkt = document.createElement('li');
+            listenpunkt.textContent = 'Die Dateiliste konnte nicht geladen werden.';
+            liste.replaceChildren(listenpunkt);
+            console.warn('Schematic-Dateiliste konnte nicht geladen werden.', primaerFehler, verzeichnisFehler);
+          }
+        }
+      })();
+    </script>
     <script src="../../js/script.js"></script>
   </footer>
 </body>
