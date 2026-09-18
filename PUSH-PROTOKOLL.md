@@ -4,6 +4,17 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 18.09.2026, 07:16:40 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`9f9bd4e`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/9f9bd4e5bea8c2a5361157c9b7647c3b167a5cfd)
+- **Commit-Beschreibung:** Transparente Minecraft-Vorschau aktualisieren
+- **Geänderte Dateien:**
+  - <code>themen/index.html</code>
+  - <code>themen/minecraft/bilder/minecraft-quer-transparent-250.png</code>
+
+
 ## 17.09.2026, 13:26:21 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
