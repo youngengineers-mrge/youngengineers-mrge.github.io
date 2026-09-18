@@ -16,6 +16,29 @@
       height: auto;
       border-radius: 8px;
     }
+
+    .minecraft-intro {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .minecraft-intro > p,
+    .minecraft-intro > img {
+      flex: 1 1 280px;
+      min-width: 0;
+    }
+
+    .minecraft-intro > p {
+      margin: 0;
+    }
+
+    @media (max-width: 720px) {
+      .minecraft-intro {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
   </style>
 </head>
 <body>
@@ -23,19 +46,28 @@
     <h1 class="overview-title">Minecraft</h1>
   </header>
   <main>
-    <section>
-      <h2>
-        <img class="topic-image" src="bilder/minecraft-quer.png" alt="Programmieren, Konstruieren und Automatisieren in einer Minecraft-Welt">
-      </h2>
+    <section class="minecraft-intro">
+      <p>Hier entsteht die neue Seite der Minecraft-AG. In dieser Rubrik sammeln und stellen wir relevante Informationen, Anleitungen und Ressourcen rund um Minecraft bereit. Der Schwerpunkt liegt auf dem Bauen, dem Einsatz von Redstone und der Automatisierung von Prozessen in Minecraft.</p>
+      <img class="topic-image" src="bilder/minecraft-quer-1-transparent.png" alt="Programmieren, Konstruieren und Automatisieren in einer Minecraft-Welt">
     </section>
-    <section>
-        <a href="../tinkercad/minecraft/index.html" aria-label="Tinkercad meets Minecraft">
-        Tinkercad meets Minecraft</a>
-        <p>Eigene 3D-Modelle werden in Tinkercad entworfen, als <strong>.schematic</strong>-Datei exportiert und anschließend in einer Minecraft-Welt verwendet.</p>
-
-        <a href="/tools/md-viewer.html?file=/themen/minecraft/kleine_burg_minecraft_26_2_anleitung.md&amp;title=schematic-Datei einfügen" aria-label="UltimMC Zusammenfassung">
-        <strong>.schematic</strong>-Datei in eine Minecraft-Welt einfügen</a>
-        <p>Eine <strong>.schematic</strong>-Datei kann in Minecraft mit der Mod "WorldEdit" eingefügt werden.</p>
+    <section><ul>
+        <li>
+          <a href="../tinkercad/minecraft/index.html" aria-label="Tinkercad meets Minecraft">
+          Tinkercad meets Minecraft</a>
+          <p>Eigene 3D-Modelle werden in Tinkercad entworfen, als <strong>.schematic</strong>-Datei exportiert und anschließend in einer Minecraft-Welt verwendet.</p>
+        </li>
+        
+        <li>
+          <a href="/tools/md-viewer.html?file=/themen/minecraft/worldedit_installation_und_test.md&amp;title=worldedit-installation-und-test" aria-label="">
+          WorldEdit installieren und testen</a>
+          <p>In dieser Anleitung wird erklärt, wie man WorldEdit in Minecraft installiert und testet.</p>
+        </li>
+        <li>
+          <a href="/tools/md-viewer.html?file=/themen/minecraft/kleine_burg_minecraft_26_2_anleitung.md&amp;title=schematic-Datei einfügen" aria-label="UltimMC Zusammenfassung">
+          <strong>.schematic</strong>-Datei in eine Minecraft-Welt einfügen</a>
+          <p>Eine <strong>.schematic</strong>-Datei kann in Minecraft mit der Mod "WorldEdit" eingefügt werden.</p>
+        </li>
+        </ul>
     </section>
     <section>
       <h2>Schematic-Dateien</h2>
