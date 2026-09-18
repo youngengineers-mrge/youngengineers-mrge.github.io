@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 18.09.2026, 21:59:04 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`90afeca`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/90afeca02d96be7a4e52947f0ff3791351af5810)
+- **Commit-Beschreibung:** Update Minecraft landing page
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/index.html</code>
+
+
 ## 18.09.2026, 21:48:31 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
