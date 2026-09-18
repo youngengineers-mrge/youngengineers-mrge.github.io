@@ -4,6 +4,17 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 18.09.2026, 21:36:49 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`74783bc`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/74783bce702bbb7848ad0c2215936138a7534c7e)
+- **Commit-Beschreibung:** Fix Minecraft Themenvorschau
+- **Geänderte Dateien:**
+  - <code>themen/index.html</code>
+  - <code>themen/minecraft/bilder/minecraft-quer-transparent.png</code>
+
+
 ## 18.09.2026, 11:53:29 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
