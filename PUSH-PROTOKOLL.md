@@ -4,6 +4,20 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 19.09.2026, 23:55:41 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`fe074f0`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/fe074f08d622304a6e6e502c69fa9938d94e8c41)
+- **Commit-Beschreibung:** Minecraft-AG: neue Inhalte und Launcher-Seiten
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/bilder/haus-markiert.png</code>
+  - <code>themen/minecraft/index.html</code>
+  - <code>themen/minecraft/launcher.html</code>
+  - <code>themen/minecraft/mc-version.html</code>
+  - <code>themen/minecraft/worldedit.html</code>
+
+
 ## 19.09.2026, 08:05:56 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
