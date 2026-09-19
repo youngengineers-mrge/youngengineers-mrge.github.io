@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minecraft</title>
+  <title>Minecraft-Version</title>
   <meta name="author" content="GitHub Copilot">
   <meta name="client" content="Andreas Sigismund">
   <meta name="publisher" content="Andreas Sigismund">
@@ -58,32 +58,63 @@
     <h1 class="overview-title">Minecraft</h1>
   </header>
   <main>
-    <section class="minecraft-intro">
-      <p>Die Minecraft-AG wendet sich an Schüler und Schülerinnen, die Interesse an Minecraft haben.<br>
-        Sie bietet die Möglichkeit, gemeinsam in Minecraft zu bauen, zu spielen und zu lernen, 
-        wie man Redstone-Schaltungen entwickelt und Prozesse automatisiert.<br>
-        Aus der AG werden geeignete Mitglieder für die AG Young Engineers ausgewählt.<br>
-
-        In dieser Rubrik sammeln und stellen wir relevante Informationen, Anleitungen und Ressourcen rund um Minecraft bereit. Der Schwerpunkt liegt auf dem Bauen, dem Einsatz von Redstone und der Automatisierung von Prozessen in Minecraft.</p>
-      <a href="bilder/minecraft-quer-1.png" target="_blank">
-        <img class="topic-image" src="bilder/minecraft-quer-1-transparent-250.png" width="250" height="141" alt="Programmieren, Konstruieren und Automatisieren in einer Minecraft-Welt">
-      </a>
-    </section>
     <section>
-      <p>Wir nutzen aktuell <strong>Minecraft: Java Edition 26.2</strong> mit  
-        <a href="mc-version.html" target="_blank">installierten Mods</a>
-      </p>
-      <p>Unsere Minecraft-Welten gestalten wir mit 
-        <a href="worldedit.html" target="_blank"><strong>WorldEdit</strong></a> effektiv.
-      </p>
-      <p><a href="../tinkercad/minecraft/index.html" aria-label="Tinkercad meets Minecraft">
-          Tinkercad</a> erlaubt es, eigene 3D-Modelle zu entwerfen und in Minecraft zu laden.
-      </p>
-      <p>Die Bereitstellung und Verwaltung verschiedener Minecraft-Installationen, Instanzen und Mods erfolgt mit unserem <a href="launcher.html">MultiMC-basierten Launcher</a>.</p>
-    </section>
+      <h2>Aktuell genutzte Minecraft-Verion, installierte Mods und Ressourcen</h2>
+      <p>Wir nutzen aktuell<strong>Minecraft Version 26.2</strong> mit den installierten Mods<br>
+        Hier die Mods kurz zusammengefasst:</p>
+      <table class="minecraft-mod-table">
+        <thead>
+          <tr>
+            <th scope="col">Mod</th>
+            <th scope="col">Aufgabe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>fabric-api-0.160.0+26.2.jar</code></td>
+            <td><strong>Grundbibliothek für Fabric-Mods.</strong> Stellt Schnittstellen, Ereignisse und gemeinsame Funktionen bereit, die viele andere Mods benötigen. Selbst bringt sie kaum sichtbare Spielfunktionen. <a href="https://modrinth.com/mod/fabric-api?hl=en-US&utm_source=chatgpt.com" title="Fabric API - Minecraft Mod">[Modrinth 1]</a></td>
+          </tr>
+          <tr>
+            <td><code>justcoordinates-0.8.0+26.2-fabric.jar</code></td>
+            <td>Blendet dauerhaft und schlicht die <strong>X-, Y- und Z-Koordinaten</strong> des Spielers ein – ähnlich wie in Bedrock Edition. <a href="https://modrinth.com/mod/just-coordinates?utm_source=chatgpt.com" title="Just Coordinates - Minecraft Mod">[Modrinth 2]</a></td>
+          </tr>
+          <tr>
+            <td><code>lithium-fabric-0.25.3+mc26.2.jar</code></td>
+            <td><strong>Optimiert die Spiellogik</strong>: Block-Ticks, Physik, Mob-KI usw. Dadurch kann Minecraft flüssiger rechnen, ohne die normale Spielmechanik wesentlich zu verändern. <a href="https://modrinth.com/mod/lithium?loader=fabric&version=26.2&utm_source=chatgpt.com" title="Lithium - Minecraft Mod">[Modrinth 3]</a></td>
+          </tr>
+          <tr>
+            <td><code>modmenu-20.0.2.jar</code></td>
+            <td>Fügt im Minecraft-Menü eine <strong>Übersicht aller installierten Mods</strong> hinzu und ermöglicht bei unterstützten Mods den Zugriff auf deren Einstellungen. <a href="https://modrinth.com/mod/modmenu/version/20.0.2?utm_source=chatgpt.com" title="20.0.2 - Mod Menu">[Modrinth 4]</a></td>
+          </tr>
+          <tr>
+            <td><code>sodium-fabric-0.9.2+mc26.2.jar</code></td>
+            <td><strong>Optimiert die Grafikdarstellung</strong>. Ziel sind höhere FPS, weniger Mikroruckler und effizienteres Rendern von Chunks und Objekten. <a href="https://modrinth.com/mod/sodium/version/mc26.2-0.9.2-fabric?utm_source=chatgpt.com" title="mc26.2-0.9.2-fabric - Sodium">[Modrinth 5]</a></td>
+          </tr>
+          <tr>
+            <td><code>worldedit-mod-7.4.5.jar</code></td>
+            <td>Mächtiger <strong>Bau- und Welteditor im Spiel</strong>: Bereiche markieren, füllen, ersetzen, kopieren, verschieben, Schematics laden/speichern, Brushes verwenden usw. Version 7.4.5 unterstützt Fabric unter Minecraft 26.2. <a href="https://modrinth.com/plugin/worldedit/version/7.4.5?utm_source=chatgpt.com" title="7.4.5 - WorldEdit">[Modrinth 6]</a></td>
+          </tr>
+          <tr>
+            <td><code>WorldEditCUI-26.2+02.jar</code></td>
+            <td>Ergänzt WorldEdit um eine <strong>grafische Anzeige der markierten Auswahlbereiche</strong>. Dadurch sieht man Grenzen und Auswahlboxen direkt in der Welt und vermeidet leichter Fehlbearbeitungen. Es ist nur die Oberfläche, <strong>nicht WorldEdit selbst</strong>. <a href="https://modrinth.com/mod/worldedit-cui?utm_source=chatgpt.com" title="WorldEdit CUI - Minecraft Mod">[Modrinth 7]</a></td>
+          </tr>
+        </tbody>
+      </table>
 
-    <section>
-      <ul>
+      <p>Für unsere Rechner ist die Aufteilung vorteilhaft:</p>
+      <p>
+        <strong>Leistung:</strong> <code>Sodium</code> + <code>Lithium</code><br>
+        <strong>Bedienung:</strong> <code>Mod Menu</code> + <code>Just Coordinates</code><br>
+        <strong>Bauen:</strong> <code>WorldEdit</code> + <code>WorldEditCUI</code><br>
+        <strong>Grundlage:</strong> <code>Fabric API</code>
+      </p>
+
+      <p>Das ist insgesamt eine sehr sinnvolle, schlanke Mod-Zusammenstellung für unsere Minecraft-Installation.</p>
+
+      
+      <p><strong>WorldEdit</strong> und <strong>OptiFine</strong>.</p>
+    </section>
+    <section><ul>
         <li>
           <a href="../tinkercad/minecraft/index.html" aria-label="Tinkercad meets Minecraft">
           Tinkercad meets Minecraft</a>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minecraft</title>
+  <title>WorldEdit</title>
   <meta name="author" content="GitHub Copilot">
   <meta name="client" content="Andreas Sigismund">
   <meta name="publisher" content="Andreas Sigismund">
@@ -55,35 +55,37 @@
 </head>
 <body>
   <header>
-    <h1 class="overview-title">Minecraft</h1>
+    <h1 class="overview-title">WorldEdit in Minecraft</h1>
   </header>
-  <main>
-    <section class="minecraft-intro">
-      <p>Die Minecraft-AG wendet sich an Schüler und Schülerinnen, die Interesse an Minecraft haben.<br>
-        Sie bietet die Möglichkeit, gemeinsam in Minecraft zu bauen, zu spielen und zu lernen, 
-        wie man Redstone-Schaltungen entwickelt und Prozesse automatisiert.<br>
-        Aus der AG werden geeignete Mitglieder für die AG Young Engineers ausgewählt.<br>
-
-        In dieser Rubrik sammeln und stellen wir relevante Informationen, Anleitungen und Ressourcen rund um Minecraft bereit. Der Schwerpunkt liegt auf dem Bauen, dem Einsatz von Redstone und der Automatisierung von Prozessen in Minecraft.</p>
-      <a href="bilder/minecraft-quer-1.png" target="_blank">
-        <img class="topic-image" src="bilder/minecraft-quer-1-transparent-250.png" width="250" height="141" alt="Programmieren, Konstruieren und Automatisieren in einer Minecraft-Welt">
-      </a>
+  <main>   <section>
+      <h2>WorldEdit und WorldEditCUI</h2>
+      <p>WorldEdit ist ein mächtiger Bau- und Welteditor für Minecraft, der es ermöglicht, große Bereiche effizient zu bearbeiten. 
+        <br>WorldEditCUI ergänzt WorldEdit um eine grafische Anzeige der markierten Auswahlbereiche.</p>
     </section>
-    <section>
-      <p>Wir nutzen aktuell <strong>Minecraft: Java Edition 26.2</strong> mit  
-        <a href="mc-version.html" target="_blank">installierten Mods</a>
-      </p>
-      <p>Unsere Minecraft-Welten gestalten wir mit 
-        <a href="worldedit.html" target="_blank"><strong>WorldEdit</strong></a> effektiv.
-      </p>
-      <p><a href="../tinkercad/minecraft/index.html" aria-label="Tinkercad meets Minecraft">
-          Tinkercad</a> erlaubt es, eigene 3D-Modelle zu entwerfen und in Minecraft zu laden.
-      </p>
-      <p>Die Bereitstellung und Verwaltung verschiedener Minecraft-Installationen, Instanzen und Mods erfolgt mit unserem <a href="launcher.html">MultiMC-basierten Launcher</a>.</p>
-    </section>
+   <section class="minecraft-intro">
+      <p>Wir nutzen den <strong>WorldEdit</strong>-Mod in Verbindung mit der <strong>WorldEditCUI</strong>-Mod in unserer Minecraft-Installation.<br>
+      Mit WorldEdit führen wir aufwendige Änderungen an der Welt aus. Typische Möglichkeiten sind:
+<br> - Bereiche mit <code>//pos1</code> und <code>//pos2</code> markieren
+<br> - Blöcke setzen oder ersetzen, z. B. <code>//set stone</code>
+<br> - Wände erzeugen mit <code>//walls</code>
+<br> - Bereiche kopieren, verschieben und drehen mit <code>//copy</code>, <code>//move</code> und <code>//rotate</code>
+<br> - Konstruktionen als <code>//schem save</code> speichern und wieder laden
+<br> - große Flächen schnell bearbeiten
+<br> - Formen wie Kugeln, Zylinder oder Hohlkörper erzeugen
+<br> - mit Brushes Gelände formen oder Blöcke „malen“
+<br> - Aktionen mit <code>//undo</code>  zurücknehmen
+<br> <br>
+WorldEditCUI ergänzt WorldEdit nur um die grafische Darstellung. <br>
+Du siehst damit direkt die beiden Auswahlpunkte und Größe und Lage der Auswahl<br>
+Schau dir die <a href="https://modrinth.com/mod/worldedit-cui/gallery?utm_source=chatgpt.com" target="_blank">WorldEditCUI Galerie</a> an.
 
-    <section>
-      <ul>
+</p>
+       <p>
+        <img class="topic-image" src="bilder/haus-markiert.png" width="250" height="141" alt="Haus in Minecraft markiert mit WorldEditCUI">
+      </p>  
+    </section>
+ 
+    <section><ul>
         <li>
           <a href="../tinkercad/minecraft/index.html" aria-label="Tinkercad meets Minecraft">
           Tinkercad meets Minecraft</a>
