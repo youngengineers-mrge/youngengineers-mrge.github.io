@@ -4,6 +4,19 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 20.09.2026, 11:33:27 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`6279086`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/6279086f8458bbd3981cb9510e2fc84d0c0c1b03)
+- **Commit-Beschreibung:** Update Minecraft materials and pages
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/fusion.html</code>
+  - <code>themen/minecraft/fusion.md</code>
+  - <code>themen/minecraft/index.html</code>
+  - <code>themen/minecraft/stl-import.md</code>
+
+
 ## 20.09.2026, 09:00:41 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
