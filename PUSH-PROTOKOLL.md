@@ -4,6 +4,20 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 20.09.2026, 09:00:41 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`7f64420`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/7f644201f7702831cb9f240aacf9e28fbf1bcbb9)
+- **Commit-Beschreibung:** Update Minecraft Python section
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/index.html</code>
+  - <code>themen/minecraft/mc-version.html</code>
+  - <code>themen/minecraft/python-advanced.md</code>
+  - <code>themen/minecraft/python-basics.md</code>
+  - <code>themen/minecraft/python.html</code>
+
+
 ## 20.09.2026, 08:00:02 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
