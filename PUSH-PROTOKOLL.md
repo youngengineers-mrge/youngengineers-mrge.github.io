@@ -4,6 +4,29 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 21.09.2026, 18:20:06 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`26000e3`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/26000e31efed84daba556ceb4f630da8673658d0)
+- **Commit-Beschreibung:** Minecraft-Themen aktualisiert
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/bauen.html</code>
+  - <code>themen/minecraft/bilder/bauen.png</code>
+  - <code>themen/minecraft/bilder/python.png</code>
+  - <code>themen/minecraft/bilder/redstone.png</code>
+  - <code>themen/minecraft/bilder/spielen.png</code>
+  - <code>themen/minecraft/bilder/tinkercad..png</code>
+  - <code>themen/minecraft/bilder/worldedit.png</code>
+  - <code>themen/minecraft/index.html</code>
+  - <code>themen/minecraft/python.html</code>
+  - <code>themen/minecraft/redstone.html</code>
+  - <code>themen/minecraft/schematic/solo-leg-trap-c5961f96.schem</code>
+  - <code>themen/minecraft/schematic/xnor-gate-7dbcb5b4.schem</code>
+  - <code>themen/minecraft/spielen.html</code>
+  - <code>themen/minecraft/worldedit.html</code>
+
+
 ## 21.09.2026, 12:03:37 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
