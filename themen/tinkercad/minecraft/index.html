@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tinkercad meets Minecraft</title>
-    <meta name="author" content="Andreas Sigismund">
-
-    <meta name="project" content="AG Minecraft/Young Engineers">
+    <meta name="author" content="GitHub Copilot">
+    <meta name="client" content="Andreas Sigismund">
+    <meta name="publisher" content="Andreas Sigismund">
+    <meta name="project" content="AG Young Engineers">
     <link rel="stylesheet" href="../../../css/my.css">
     <meta name="robots" content="noindex, nofollow">
     <style>
@@ -28,12 +29,35 @@
         height: auto;
         border: 1px solid var(--border);
       }
+      .minecraft-intro {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .minecraft-intro > p,
+      .minecraft-intro > a {
+        flex: 1 1 280px;
+        min-width: 0;
+      }
+      .minecraft-intro > p {
+        margin: 0;
+      }
+      .topic-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
       @media (max-width: 650px) {
         .text-image-row {
           grid-template-columns: 1fr;
         }
         .image-link {
           width: min(100%, 280px);
+        }
+        .minecraft-intro {
+          flex-direction: column;
+          align-items: stretch;
         }
       }
     </style>
@@ -43,6 +67,16 @@
   <h1>Tinkercad meets Minecraft</h1>
 </header>
 <main>
+  <section>
+    <h2>Einführung</h2>
+    <p>Mit Tinkercad lassen sich 3D-Modelle schnell entwerfen, im Minecraft-Blockstil prüfen und anschließend als Schematic-Datei für eine Spielwelt exportieren.</p>
+  </section>
+  <section class="minecraft-intro">
+    <p>Im Bereich »3D-Entwurf« lassen sich eigene Modelle gestalten und anschließend für Minecraft exportieren. Dabei beobachten wir, wie die 3D-Form mit einem Blockraster in eine Minecraft-Struktur übersetzt wird.</p>
+    <a href="bilder/bild_4.png" target="_blank" rel="noopener" title="Bild in voller Größe öffnen">
+      <img class="topic-image" src="bilder/bild_4.png" alt="Tinkercad-Modell in Minecraft" width="250" height="141">
+    </a>
+  </section>
   <section>
     <h2>Vom 3D-Entwurf zu Minecraft</h2>
     <p>Im Bereich »3D-Entwurf« lassen sich eigene Modelle gestalten und anschließend für Minecraft exportieren.</p>
