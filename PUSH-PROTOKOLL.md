@@ -4,6 +4,24 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 21.09.2026, 18:32:04 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`d3d1f8b`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/d3d1f8bd8d65877ac3ab267000a8be9ad32fe703)
+- **Commit-Beschreibung:** Metadaten im Minecraft-Bereich korrigiert
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/bauen.html</code>
+  - <code>themen/minecraft/fusion.html</code>
+  - <code>themen/minecraft/index.html</code>
+  - <code>themen/minecraft/launcher.html</code>
+  - <code>themen/minecraft/mc-version.html</code>
+  - <code>themen/minecraft/python.html</code>
+  - <code>themen/minecraft/redstone.html</code>
+  - <code>themen/minecraft/spielen.html</code>
+  - <code>themen/minecraft/worldedit.html</code>
+
+
 ## 21.09.2026, 18:20:06 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
