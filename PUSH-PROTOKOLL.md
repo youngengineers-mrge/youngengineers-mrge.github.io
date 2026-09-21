@@ -4,6 +4,19 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 21.09.2026, 12:03:37 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`35d1627`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/35d1627f4b1cfad4ca46b9ea3af4eb70c279c5aa)
+- **Commit-Beschreibung:** Update Minecraft theme pages and schematics
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/index.html</code>
+  - <code>themen/minecraft/schematic/japanese-house.schem</code>
+  - <code>themen/minecraft/schematic/xnor-gate.litematic</code>
+  - <code>themen/minecraft/worldedit.html</code>
+
+
 ## 21.09.2026, 11:37:19 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
