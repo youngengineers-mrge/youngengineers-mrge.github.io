@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 21.09.2026, 11:37:19 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`febc831`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/febc831a36080575c17e4bf0fa18b44f6af2ea6d)
+- **Commit-Beschreibung:** Minecraft-Versionsseite aktualisieren
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/mc-version.html</code>
+
+
 ## 20.09.2026, 11:33:27 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
