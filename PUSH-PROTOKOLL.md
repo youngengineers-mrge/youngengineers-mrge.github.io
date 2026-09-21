@@ -4,6 +4,23 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 21.09.2026, 20:54:31 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`5fd4e55`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/5fd4e553c4319ccd136ed5d93025214013662f8c)
+- **Commit-Beschreibung:** Minecraft-Seiten überarbeitet und Bildpfad korrigiert
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/bauen.html</code>
+  - <code>themen/minecraft/bilder/tinkercad.png</code>
+  - <code>themen/minecraft/index.html</code>
+  - <code>themen/minecraft/python.html</code>
+  - <code>themen/minecraft/redstone.html</code>
+  - <code>themen/minecraft/spielen.html</code>
+  - <code>themen/minecraft/tinkercad.html</code>
+  - <code>themen/minecraft/worldedit.html</code>
+
+
 ## 21.09.2026, 18:32:04 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
