@@ -288,31 +288,92 @@ function initialisiereMinecraftNavigation() {
 
   const liste = document.createElement("ul");
   const zurueck = document.createElement("li");
+  const uebergeordnet = document.createElement("li");
   const startseite = document.createElement("li");
   const zurueckLink = document.createElement("a");
+  const uebergeordnetLink = document.createElement("a");
   const startseiteLink = document.createElement("a");
 
-  zurueckLink.href = "../index.html";
-  zurueckLink.textContent = "←";
-  zurueckLink.setAttribute("aria-label", "Eine Ebene zurück");
-  zurueckLink.title = "Eine Ebene zurück";
+  const pfad = window.location.pathname;
+  const verzeichnis = pfad.substring(0, pfad.lastIndexOf("/") + 1);
+  const uebergeordneteSeite = pfad.endsWith("/index.html")
+    ? verzeichnis.replace(/[^/]+\/$/, "") + "index.html"
+    : verzeichnis + "index.html";
+  const referrerIstIntern = (() => {
+    if (!document.referrer) {
+      return false;
+    }
 
-  startseiteLink.href = "../../index.html";
+    try {
+      return new URL(document.referrer).origin === window.location.origin;
+    } catch {
+      return false;
+    }
+  })();
+
+  zurueckLink.href = uebergeordneteSeite;
+  zurueckLink.textContent = "←";
+  zurueckLink.setAttribute("aria-label", "Zurück");
+  zurueckLink.title = "Zurück";
+  zurueckLink.addEventListener("click", (ereignis) => {
+    if (referrerIstIntern) {
+      ereignis.preventDefault();
+      window.history.back();
+    }
+  });
+
+  uebergeordnetLink.href = uebergeordneteSeite;
+  uebergeordnetLink.textContent = "↑";
+  uebergeordnetLink.setAttribute("aria-label", "Übergeordnetes Thema");
+  uebergeordnetLink.title = "Übergeordnetes Thema";
+
+  startseiteLink.href = "/index.html";
   startseiteLink.textContent = "⌂";
   startseiteLink.setAttribute("aria-label", "Startseite");
   startseiteLink.title = "Startseite";
 
   zurueck.appendChild(zurueckLink);
+  uebergeordnet.appendChild(uebergeordnetLink);
   startseite.appendChild(startseiteLink);
-  liste.append(zurueck, startseite);
+  liste.append(zurueck, uebergeordnet, startseite);
   navigation.appendChild(liste);
   header.appendChild(navigation);
+}
+
+function normalisiereMinecraftLinks() {
+  if (!/^\/themen\/minecraft(?:\/|$)/.test(window.location.pathname)) {
+    return;
+  }
+
+  document.querySelectorAll("a[href]").forEach(link => {
+    let ziel;
+
+    try {
+      ziel = new URL(link.href, window.location.href);
+    } catch {
+      return;
+    }
+
+    if (ziel.protocol !== "http:" && ziel.protocol !== "https:") {
+      return;
+    }
+
+    if (ziel.origin === window.location.origin) {
+      link.removeAttribute("target");
+      return;
+    }
+
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+  });
 }
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initialisiereBildVollansicht);
   document.addEventListener("DOMContentLoaded", initialisiereMinecraftNavigation);
+  document.addEventListener("DOMContentLoaded", normalisiereMinecraftLinks);
 } else {
   initialisiereBildVollansicht();
   initialisiereMinecraftNavigation();
+  normalisiereMinecraftLinks();
 }

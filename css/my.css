@@ -58,6 +58,7 @@ h2 { margin-top:0; color:var(--accent-dark); }
 .minecraft-page-nav a {
   min-width:2.4rem;
   padding:6px 10px;
+  white-space:nowrap;
   text-align:center;
 }
 @media (max-width:720px) {
