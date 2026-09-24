@@ -4,6 +4,17 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 25.09.2026, 00:13:14 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`e43fae4`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/e43fae40e56af8d80d9ac3dc04b4ed0e4b3dd2c5)
+- **Commit-Beschreibung:** Minecraft-Navigation und Links aktualisieren
+- **Geänderte Dateien:**
+  - <code>css/my.css</code>
+  - <code>js/script.js</code>
+
+
 ## 24.09.2026, 21:51:56 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
