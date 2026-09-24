@@ -4,6 +4,18 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 24.09.2026, 21:51:56 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`e5cbb5a`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/e5cbb5a482983d5e3d5a8d33113b95c9de6c6334)
+- **Commit-Beschreibung:** Minecraft-Navigation zentral aktivieren
+- **Geänderte Dateien:**
+  - <code>css/my.css</code>
+  - <code>js/script.js</code>
+  - <code>themen/minecraft/spielen.html</code>
+
+
 ## 24.09.2026, 19:48:56 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
