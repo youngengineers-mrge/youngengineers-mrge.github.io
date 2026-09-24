@@ -270,8 +270,49 @@ function initialisiereBildVollansicht() {
   });
 }
 
+function initialisiereMinecraftNavigation() {
+  if (!/^\/themen\/minecraft(?:\/|$)/.test(window.location.pathname)) {
+    return;
+  }
+
+  const header = document.querySelector("header");
+  if (!header || header.querySelector(".minecraft-page-nav")) {
+    return;
+  }
+
+  header.classList.add("minecraft-page-header");
+
+  const navigation = document.createElement("nav");
+  navigation.className = "minecraft-page-nav";
+  navigation.setAttribute("aria-label", "Seitennavigation");
+
+  const liste = document.createElement("ul");
+  const zurueck = document.createElement("li");
+  const startseite = document.createElement("li");
+  const zurueckLink = document.createElement("a");
+  const startseiteLink = document.createElement("a");
+
+  zurueckLink.href = "../index.html";
+  zurueckLink.textContent = "←";
+  zurueckLink.setAttribute("aria-label", "Eine Ebene zurück");
+  zurueckLink.title = "Eine Ebene zurück";
+
+  startseiteLink.href = "../../index.html";
+  startseiteLink.textContent = "⌂";
+  startseiteLink.setAttribute("aria-label", "Startseite");
+  startseiteLink.title = "Startseite";
+
+  zurueck.appendChild(zurueckLink);
+  startseite.appendChild(startseiteLink);
+  liste.append(zurueck, startseite);
+  navigation.appendChild(liste);
+  header.appendChild(navigation);
+}
+
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initialisiereBildVollansicht);
+  document.addEventListener("DOMContentLoaded", initialisiereMinecraftNavigation);
 } else {
   initialisiereBildVollansicht();
+  initialisiereMinecraftNavigation();
 }
