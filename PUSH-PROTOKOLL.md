@@ -4,6 +4,33 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 24.09.2026, 17:21:58 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`557b4a0`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/557b4a02f6b3a57bc69f6bdebe365a9fa67844b7)
+- **Commit-Beschreibung:** Minecraft-Themenbereich vervollständigen
+- **Geänderte Dateien:**
+  - <code>js/script.js</code>
+  - <code>themen/minecraft/ag-minecraft-server.html</code>
+  - <code>themen/minecraft/ag-server.html</code>
+  - <code>themen/minecraft/bilder/ag-server-startseite.png</code>
+  - <code>themen/minecraft/bilder/lernsax-webdav-1.png</code>
+  - <code>themen/minecraft/bilder/lernsax-webdav-2.png</code>
+  - <code>themen/minecraft/bilder/minecraft-ag.manager.py-instanzen.png</code>
+  - <code>themen/minecraft/bilder/minecraft-ag.manager.py-mods.png</code>
+  - <code>themen/minecraft/bilder/minecraft-ag.manager.py-resourcepacks.png</code>
+  - <code>themen/minecraft/bilder/minecraft-ag.manager.py.png</code>
+  - <code>themen/minecraft/dateien/lernsax-anmelden.au3</code>
+  - <code>themen/minecraft/index.html</code>
+  - <code>themen/minecraft/lernsax-anmelden-dokumentation.md</code>
+  - <code>themen/minecraft/lernsax-webdav.html</code>
+  - <code>themen/minecraft/minecraft-ag-manager.html</code>
+  - <code>themen/minecraft/webserver-startseite.html</code>
+  - <code>themen/minecraft/workaround.html</code>
+  - <code>themen/minecraft/worldedit_installation_und_test.md</code>
+
+
 ## 23.09.2026, 07:53:47 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
