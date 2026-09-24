@@ -4,6 +4,37 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 24.09.2026, 19:14:33 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`de86da7`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/de86da715f88a9af64963c52a7d65b351b63e858)
+- **Commit-Beschreibung:** Minecraft-Seiten und Styles zentralisieren
+- **Geänderte Dateien:**
+  - <code>css/my.css</code>
+  - <code>themen/minecraft/ag-server.html</code>
+  - <code>themen/minecraft/bauen.html</code>
+  - <code>themen/minecraft/bilder/multimc-Instanzen.png</code>
+  - <code>themen/minecraft/bilder/multimc-konsolenfenster-1.png</code>
+  - <code>themen/minecraft/bilder/multimc-konsolenfenster-mods.png</code>
+  - <code>themen/minecraft/bilder/multimc-konsolenfenster-welten.png</code>
+  - <code>themen/minecraft/fusion.html</code>
+  - <code>themen/minecraft/index.html</code>
+  - <code>themen/minecraft/launcher.html</code>
+  - <code>themen/minecraft/mc-version.html</code>
+  - <code>themen/minecraft/minecraft-ag-manager.html</code>
+  - <code>themen/minecraft/python-basics.md</code>
+  - <code>themen/minecraft/python.html</code>
+  - <code>themen/minecraft/redstone.html</code>
+  - <code>themen/minecraft/spielen.html</code>
+  - <code>themen/minecraft/tinkercad.html</code>
+  - <code>themen/minecraft/webserver-startseite.html</code>
+  - <code>themen/minecraft/workaround.html</code>
+  - <code>themen/minecraft/worldedit.html</code>
+  - <code>themen/minecraft/worldedit_installation_und_test.md</code>
+  - <code>themen/tinkercad/minecraft/index.html</code>
+
+
 ## 24.09.2026, 17:21:58 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
