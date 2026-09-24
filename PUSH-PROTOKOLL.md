@@ -4,6 +4,23 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 24.09.2026, 19:43:15 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`4aed151`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/4aed151c64b3b764aa4646a67cf75c2fe1f02884)
+- **Commit-Beschreibung:** Minecraft-Bilddarstellung verbessern
+- **Geänderte Dateien:**
+  - <code>css/my.css</code>
+  - <code>themen/minecraft/bauen.html</code>
+  - <code>themen/minecraft/index.html</code>
+  - <code>themen/minecraft/python.html</code>
+  - <code>themen/minecraft/redstone.html</code>
+  - <code>themen/minecraft/spielen.html</code>
+  - <code>themen/minecraft/tinkercad.html</code>
+  - <code>themen/minecraft/worldedit.html</code>
+
+
 ## 24.09.2026, 19:14:33 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
