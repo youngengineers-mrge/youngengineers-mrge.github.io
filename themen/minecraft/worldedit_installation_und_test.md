@@ -10,7 +10,7 @@
 
 5. In MultiMC unter **Loader-Mods** → **Hinzufügen** die heruntergeladene `worldedit-...jar` einfügen und aktivieren.
 
-6. Minecraft starten und eine **Einzelspielerwelt mit aktivierten Cheats** öffnen. Ohne Cheats stehen die WorldEdit-Befehle im Einzelspieler nicht zur Verfügung. ([WorldEdit Dokumentation][2])
+6. Minecraft starten und eine **Einzelspielerwelt mit aktivierten Cheats** öffnen. Ohne Cheats stehen die WorldEdit-Befehle im Einzelspieler nicht zur Verfügung. ([WorldEdit Dokumentation][1])
 
 7. Im Chat eingeben:
 
@@ -52,5 +52,4 @@ Für eure AG würde ich als ersten Standardtest sogar nur diese vier Befehle ver
 
 Damit lässt sich sehr schnell prüfen, ob eine vorbereitete MultiMC-Instanz auf einem Schul-PC vollständig funktioniert.
 
-[1]: https://worldedit.enginehub.org/_/downloads/en/latest/pdf/?utm_source=chatgpt.com "WorldEdit Documentation Documentation"
-[2]: https://worldedit.enginehub.org/_/downloads/en/7.1.0/pdf/?utm_source=chatgpt.com "WorldEdit Documentation Documentation"
+[1]: https://worldedit.enginehub.org/_/downloads/en/latest/pdf/ "WorldEdit Documentation Documentation"

@@ -3,7 +3,7 @@
 **Python → `.schem`-Datei → WorldEdit → Minecraft**
 
 WorldEdit verwendet für aktuelle Minecraft-Versionen das Sponge-Schematic-Format `.schem`; geladen wird eine Datei mit `//schem load <name>` und anschließend mit `//paste` eingefügt. ([GitHub][1])
-## G
+## Grundlagen
 
 ### 1. Python erzeugt die Blöcke
 

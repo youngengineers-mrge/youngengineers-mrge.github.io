@@ -31,6 +31,15 @@ h2 { margin-top:0; color:var(--accent-dark); }
 .section-heading h2 { margin-bottom:0; }
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
 .project-card { border:1px solid var(--border); border-radius:12px; padding:6px; background:#fbfdff; }
+.topic-image { display:block; width:100%; height:auto; border-radius:8px; }
+.minecraft-intro { display:flex; align-items:center; gap:1.5rem; }
+.minecraft-intro > p,
+.minecraft-intro > img,
+.minecraft-intro > a { flex:1 1 280px; min-width:0; }
+.minecraft-intro > p { margin:0; }
+@media (max-width:720px) {
+  .minecraft-intro { flex-direction:column; align-items:stretch; }
+}
 .topic-preview-image { display:block; width:100%; max-width:250px; height:auto; margin:0 auto; }
 .image-fullsize-preview {
   position: fixed;

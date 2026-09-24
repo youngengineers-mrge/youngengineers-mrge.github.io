@@ -29,35 +29,12 @@
         height: auto;
         border: 1px solid var(--border);
       }
-      .minecraft-intro {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-      }
-      .minecraft-intro > p,
-      .minecraft-intro > a {
-        flex: 1 1 280px;
-        min-width: 0;
-      }
-      .minecraft-intro > p {
-        margin: 0;
-      }
-      .topic-image {
-        display: block;
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-      }
       @media (max-width: 650px) {
         .text-image-row {
           grid-template-columns: 1fr;
         }
         .image-link {
           width: min(100%, 280px);
-        }
-        .minecraft-intro {
-          flex-direction: column;
-          align-items: stretch;
         }
       }
     </style>

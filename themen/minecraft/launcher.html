@@ -9,6 +9,31 @@
   <meta name="publisher" content="Andreas Sigismund">
   <meta name="project" content="AG Young Engineers">
   <link rel="stylesheet" href="../../css/my.css">
+  <style>
+    .multimc-images {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .multimc-images figure {
+      margin: 0;
+    }
+
+    .multimc-images img {
+      display: block;
+      width: 100%;
+      max-height: 260px;
+      object-fit: contain;
+      cursor: zoom-in;
+    }
+
+    @media (max-width: 720px) {
+      .multimc-images {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -18,15 +43,47 @@
    <section>
      <h2>Minecraft Launcher</h2>
       <p>
-        Die Bereitstellung und Verwaltung verschiedener Minecraft-Installationen, Instanzen und Mods auf den Schul-PCs 
+        Die Bereitstellung und Verwaltung verschiedener Minecraft-Versionen, Instanzen und Mods auf den Schul-PCs 
         bereitet uns auf Grund fehlender Rechte und vorhandener Einschränkungen im Computernetzwerk große Schwierigkeiten.<br>
-        Durch den Einsatz eines <strong>MultiMC-basierten Launchers</strong> löst sich dieses Problem weitgehend.
+        Durch den Einsatz eines MultiMC-basierten Launchers in Verbidung 
+        mit dem <strong>AG-Server</strong> und dem <strong>AG-Minecraft-Manager</strong> werden dieses Problem und weitgehend gelöst.
       </p>
+      <p>Der Launcher MultiMC kann auch auf ihren privaten Computern genutzt werden.<br>
+        Dazu laden sie MultiMC von der <a href="https://multimc.org/?utm_source=chatgpt.com#Download">offiziellen Website</a> herunter.<br>
+        Es stehen Versionen für Windows, macOS und Linux als gepackte Verzeichnisse zur Verfügung,
+        die lediglich entpackt werden müssen, um den Launcher zu nutzen.
+       </p>
+       <p>Voraussetzung ist das Vorhandensein der Zugangsdaten für Minecraft: Java Edition bzw. Minecraft Bedrock Edition.<br>
+         "Seit 7. Juni 2022 verkauft Mojang die PC-Version standardmäßig als „Minecraft: Java & Bedrock Edition for PC“. 
+         Wer auf einem Windows-PC eine der beiden Editionen besaß, bekam die jeweils andere ebenfalls dazu."</p>
+         <p>
+          Zugangsdaten für Konsolen oder PlayStation können auch genutzt werden, wenn es sich um ein Microsoft-Konto handelt.<br>
+          Dann kannst du grundsätzlich dieselben Microsoft-Zugangsdaten auch auf Windows, macOS oder Linux im Minecraft-Launcher verwenden.
+         </p>
+       <p>Bei Bedarf erhalten die AG-Mitglieder Informationen und Anleitungen zur Nutzung von MultiMC in der AG.</p>
       
    </section>
 
     <section>
- ...
+      <h2>„MultiMC“-Launcher in Aktion</h2>
+      <div class="multimc-images">
+        <figure>
+          <img class="hover-fullsize-image" src="bilder/multimc-Instanzen.png" alt="MultiMC mit der Übersicht der Minecraft-Instanzen">
+          <figcaption>Übersicht der Instanzen</figcaption>
+        </figure>
+        <figure>
+          <img class="hover-fullsize-image" src="bilder/multimc-konsolenfenster-1.png" alt="MultiMC-Konsolenfenster mit einer Minecraft-Instanz">
+          <figcaption>MultiMC-Konsolenfenster</figcaption>
+        </figure>
+        <figure>
+          <img class="hover-fullsize-image" src="bilder/multimc-konsolenfenster-mods.png" alt="MultiMC-Konsolenfenster bei der Verwaltung von Mods">
+          <figcaption>Verwaltung von Mods</figcaption>
+        </figure>
+        <figure>
+          <img class="hover-fullsize-image" src="bilder/multimc-konsolenfenster-welten.png" alt="MultiMC-Konsolenfenster bei der Verwaltung von Welten">
+          <figcaption>Verwaltung von Welten</figcaption>
+        </figure>
+      </div>
     </section>
   </main>
   <footer>
