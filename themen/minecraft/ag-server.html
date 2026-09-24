@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AG-Server - Minecraft</title>
+  <meta name="author" content="Andreas Sigismund">
+  <meta name="generator" content="ChatGPT, GitHub Copilot">
+  <meta name="publisher" content="Andreas Sigismund">
+  <meta name="project" content="AG Young Engineers">
+  <link rel="stylesheet" href="../../css/my.css">
+    <style>
+    .topic-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .minecraft-intro {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .minecraft-intro > p,
+    .minecraft-intro > img {
+      flex: 1 1 280px;
+      min-width: 0;
+    }
+
+    .minecraft-intro > p {
+      margin: 0;
+    }
+
+    .minecraft-mod-table th:first-child,
+    .minecraft-mod-table td:first-child {
+      width: 30%;
+      min-width: 240px;
+    }
+
+    @media (max-width: 720px) {
+      .minecraft-intro {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .minecraft-mod-table th:first-child,
+      .minecraft-mod-table td:first-child {
+        width: 100%;
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="overview-title">AG-Server &amp; Minecraft</h1>
+  </header>
+  <main>
+
+    <section class="minecraft-intro">
+      <div>
+        <h2>Einführung</h2>
+        <p>Unser lokaler Webserver ermöglicht es uns, Welten, Instanzen, Resourcepacks und Schamtic-Dateien zentral bereitzustellen.<p>
+         <p>
+                  <code>http://10.50.1.10:8000</code> aufrufen, um auf die bereitgestellten Dateien zuzugreifen.
+        </p>
+        <pre>
+          minecraft - instanzen
+                          26.2.zip
+                          26.2 - saves
+                               - mods  
+                               - resourcepacks
+                               - datapacks
+
+
+        </pre>
+     
+    </section>
+
+  </main>
+  <footer>
+    Erstellt mit Unterstützung von ChatGPT und GitHub Copilot ·
+    Fachliche Prüfung und Veröffentlichung: Andreas Sigismund<br>
+    AG Young Engineers · Martin-Rinckart-Gymnasium Eilenburg<br>
+    Letzte Änderung: <span id="lastModified">TT.MM.JJJJ, hh:mm Uhr</span>
+   
+    <script src="../../js/script.js"></script>
+  </footer>
+</body>
+</html>

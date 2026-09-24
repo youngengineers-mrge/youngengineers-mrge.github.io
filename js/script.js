@@ -257,6 +257,16 @@ function initialisiereBildVollansicht() {
         schliesseVollansicht();
       }
     });
+
+    vorschaubild.addEventListener("click", () => {
+      schliesseVollansicht();
+      aktivesVorschaubild = vorschaubild;
+      const bildquelle = vorschaubild.currentSrc || vorschaubild.src;
+      originalbild.src = bildquelle.replace(/-250(?=\.[^./?#]+(?:[?#]|$))/, "");
+      originalbild.alt = vorschaubild.alt;
+      vollansicht.classList.add("is-visible");
+      vollansicht.setAttribute("aria-hidden", "false");
+    });
   });
 }
 

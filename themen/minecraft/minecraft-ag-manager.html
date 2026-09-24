@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minecraft AG Manager</title>
+  <meta name="author" content="Andreas Sigismund">
+  <meta name="generator" content="ChatGPT, GitHub Copilot">
+  <meta name="publisher" content="Andreas Sigismund">
+  <meta name="project" content="AG Young Engineers">
+  <link rel="stylesheet" href="../../css/my.css">
+    <style>
+    .topic-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .minecraft-intro {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .minecraft-intro > p,
+    .minecraft-intro > img {
+      flex: 1 1 280px;
+      min-width: 0;
+    }
+
+    .minecraft-intro > p {
+      margin: 0;
+    }
+
+    .minecraft-mod-table th:first-child,
+    .minecraft-mod-table td:first-child {
+      width: 30%;
+      min-width: 240px;
+    }
+
+    .minecraft-manager-cards .project-card img {
+      display: block;
+      width: 100%;
+      max-height: 180px;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 720px) {
+      .minecraft-intro {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .minecraft-mod-table th:first-child,
+      .minecraft-mod-table td:first-child {
+        width: 100%;
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="overview-title">Minecraft AG Manager</h1>
+  </header>
+  <main>
+
+    <section class="minecraft-intro">
+      <div>
+        <h2>Einführung</h2>
+        <p>
+Das Programm <code>ag_manager_gui_v2.py</code> ist ein grafischer <strong>Minecraft AG-Manager</strong> für Windows. Es unterstützt die Verwaltung von Minecraft-Instanzen, Welten, Backups, Mods und Resourcepacks für eine Schul- oder Arbeitsgemeinschaft.
+</p>
+<p>
+Es findet lokale <strong>UltimMC-Instanzen</strong>, zeigt deren Welten an und ermöglicht typische Verwaltungsaufgaben: Welten komprimieren, löschen, sichern, aus Backups wiederherstellen und vom AG-Server herunterladen. Dabei nutzt es einen lokalen AG-Server, zum Beispiel <code>http://192.168.2.107:8000</code>, um gepackte Welten, Instanzen und Resourcepacks bereitzustellen.
+</p>
+<p>
+Zusätzlich kann das Programm komplette Minecraft-Instanzen verwalten: vorhandene Instanzen löschen oder gepackte Instanzen vom AG-Server herunterladen und in den lokalen UltimMC-Ordner entpacken. Auch Resourcepacks können pro Instanz vom Server geladen und in das passende <code>.minecraft\resourcepacks</code>-Verzeichnis eingefügt werden.
+</p>
+<p>
+Für Sicherungen erstellt das Programm ZIP-Backups von Welten. Diese können lokal gespeichert, auf den AG-Server hochgeladen oder per LernSax-E-Mail verschickt werden. Bereits vorhandene Welten, Instanzen oder Resourcepacks werden nicht ungefragt überschrieben, sondern erst nach Bestätigung ersetzt.
+</p>
+<p>
+Kurz gesagt: Das Programm dient dazu, die Minecraft-AG zentral mit vorbereiteten Instanzen, Welten, Backups, Mods und Resourcepacks zu versorgen und lokale Schüler-Installationen einfacher zu warten.
+</p>
+    </section>
+    <section>
+      <h2>Funktionen</h2>
+      <p>
+        Der Minecraft AG-Manager bietet folgende Funktionen:
+      </p>
+      <div class="grid minecraft-manager-cards">
+        <article class="project-card">
+          <img class="hover-fullsize-image" src="bilder/minecraft-ag.manager.py.png" alt="Minecraft AG-Manager mit der allgemeinen Übersicht">
+          <h3>Welten</h3>
+          <p>Vorhandene Welten anzeigen, sichern und vom AG-Server herunterladen.</p>
+        </article>
+        <article class="project-card">
+          <img class="hover-fullsize-image" src="bilder/minecraft-ag.manager.py-instanzen.png" alt="Minecraft AG-Manager bei der Verwaltung von Instanzen">
+          <h3>Instanzen</h3>
+          <p>Minecraft-Instanzen anzeigen, löschen und vom AG-Server herunterladen.</p>
+        </article>
+        <article class="project-card">
+          <img class="hover-fullsize-image" src="bilder/minecraft-ag.manager.py-mods.png" alt="Minecraft AG-Manager bei der Verwaltung von Mods">
+          <h3>Mods</h3>
+          <p>Mods für die verwalteten Minecraft-Instanzen bereitstellen.</p>
+        </article>
+        <article class="project-card">
+          <img class="hover-fullsize-image" src="bilder/minecraft-ag.manager.py-resourcepacks.png" alt="Minecraft AG-Manager bei der Verwaltung von Resourcepacks">
+          <h3>Resourcepacks</h3>
+          <p>Resourcepacks auswählen und passend zur Instanz installieren.</p>
+        </article>
+      </div>
+    </section>
+      
+  </main>
+  <footer>
+    Erstellt mit Unterstützung von ChatGPT und GitHub Copilot ·
+    Fachliche Prüfung und Veröffentlichung: Andreas Sigismund<br>
+    AG Young Engineers · Martin-Rinckart-Gymnasium Eilenburg<br>
+    Letzte Änderung: <span id="lastModified">TT.MM.JJJJ, hh:mm Uhr</span>
+   
+    <script src="../../js/script.js"></script>
+  </footer>
+</body>
+</html>

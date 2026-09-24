@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LernSax WebDAV</title>
+  <meta name="author" content="GitHub Copilot">
+  <meta name="client" content="Andreas Sigismund">
+  <meta name="publisher" content="Andreas Sigismund">
+  <meta name="project" content="AG Young Engineers">
+  <link rel="stylesheet" href="../../css/my.css">
+  <style>
+    .lernsax-images {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .lernsax-images img {
+      display: block;
+      width: 100%;
+      height: auto;
+      cursor: zoom-in;
+    }
+
+    .lernsax-image-wrapper {
+      position: relative;
+      width: calc(50% - .5rem);
+    }
+
+    .lernsax-hover-hint {
+      position: absolute;
+      left: .5rem;
+      bottom: .5rem;
+      padding: .25rem .5rem;
+      background: rgba(15, 23, 42, .85);
+      color: #fff;
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .1s ease;
+    }
+
+    .lernsax-image-wrapper:hover .lernsax-hover-hint {
+      opacity: 1;
+    }
+
+    @media (max-width: 720px) {
+      .lernsax-images {
+        flex-direction: column;
+      }
+
+      .lernsax-images img {
+        width: 100%;
+      }
+
+      .lernsax-image-wrapper {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header><h1 class="overview-title">LernSax WebDAV</h1></header>
+  <main>
+    <section>
+      <h2>Einleitung</h2>
+      <p>Dieses Programm <code>lernsax-anmelden</code> stellt nach der Anmeldung eine Verbindung zu LernSax her
+         und bindet ausgewählte Bereiche als Laufwerke in Windows ein.<br>
+        In der Programmversion für die Mitglieder der AGs <strong>Minecraft</strong> und <strong>Young Engineers</strong> 
+        werden folgende LernSax-Bereiche eingebunden:
+      </p>
+      <ol>
+        <li>der persönliche <code>storage</code>-Ordner des angemeldeten Nutzers</li>
+        <li>der gemeinsame <code>storage</code>-Ordner der Gruppe Young Engineers</li>
+        <li>der gemeinsame <code>storage</code>-Ordner der Minecraft-Gruppe</li>
+      </ol>
+      <p>Dadurch können andere Programme direkt auf die dort gespeicherten Dateien zugreifen.</p>
+      <p>Nach der Nutzung des Programms sollten die verbundenen Laufwerke wieder getrennt werden, 
+         um die Sicherheit der Daten zu gewährleisten.
+      </p>
+      <p>Das Trennen kann auf folgende Weise erfolgen:</p>
+      <ul>
+        <li>das Programm erneut aufrufen</li>
+        <li>den Datei-Explorer öffnen und die verbundenen Laufwerke trennen</li>
+        <li>Windows neu starten oder herunterfahren</li>
+        <li>den Windows-Befehl <code>net use * /delete</code> für alle Laufwerke ausführen</li>
+        <li>den Windows-Befehl <code>net use P: /delete</code> für das Laufwerk P: ausführen</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Programmoberfläche</h2>
+      <div class="lernsax-images">
+        <div class="lernsax-image-wrapper">
+          <img class="hover-fullsize-image" src="bilder/lernsax-webdav-1.png" alt="LernSax WebDAV Programmoberfläche">
+          <span class="lernsax-hover-hint">Warten für Vollbild</span>
+        </div>
+        <div class="lernsax-image-wrapper">
+          <img class="hover-fullsize-image" src="bilder/lernsax-webdav-2.png" alt="LernSax WebDAV Laufwerksauswahl">
+          <span class="lernsax-hover-hint">Warten für Vollbild</span>
+        </div>
+      </div>
+    </section>
+
+    
+    <section>
+        <h2>Dokumentation</h2>
+        <p>Ausführliche <a href="../../tools/md-viewer.html?file=/themen/minecraft/lernsax-anmelden-dokumentation.md&amp;title=LernSax-Anmeldedokumentation" target="_blank" rel="noopener noreferrer">
+            Programmbeschreibung</a> des AutoIt-Programms
+        </p>
+        <p>Quelltext <a href="dateien/lernsax-anmelden.au3" download>
+            lernsax-anmelden.au3</a> des AutoIt-Programms
+        </p>
+        <p>Das Programm kann modifiziert werden, um den individuellen Bedürfnissen der Nutzer gerecht zu werden. <br>
+            Bei Änderungen muss auf die Herkunft des Programms verwiesen werden: AG Young Engineers, Martin-Rinckart-Gymnasium Eilenburg.</p>
+        
+    </section>
+  </main>
+  <footer>
+    Erstellt mit Unterstützung von GitHub Copilot · Fachliche Prüfung und Veröffentlichung: Andreas Sigismund<br>
+    AG Young Engineers · Martin-Rinckart-Gymnasium Eilenburg<br>
+    Letzte Änderung: <span id="lastModified">TT.MM.JJJJ, hh:mm Uhr</span>
+    <script src="../../js/script.js"></script>
+  </footer>
+</body>
+</html>
