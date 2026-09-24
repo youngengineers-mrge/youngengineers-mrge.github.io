@@ -32,10 +32,12 @@ h2 { margin-top:0; color:var(--accent-dark); }
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
 .project-card { border:1px solid var(--border); border-radius:12px; padding:6px; background:#fbfdff; }
 .topic-image { display:block; width:100%; height:auto; border-radius:8px; }
+.hover-fullsize-image { cursor:zoom-in; }
 .minecraft-intro { display:flex; align-items:center; gap:1.5rem; }
 .minecraft-intro > p,
+.minecraft-intro > div { flex:1 1 40%; min-width:0; }
 .minecraft-intro > img,
-.minecraft-intro > a { flex:1 1 280px; min-width:0; }
+.minecraft-intro > a { flex:1 1 60%; min-width:0; }
 .minecraft-intro > p { margin:0; }
 @media (max-width:720px) {
   .minecraft-intro { flex-direction:column; align-items:stretch; }
