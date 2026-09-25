@@ -4,6 +4,17 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 25.09.2026, 22:05:09 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`d269fcf`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/d269fcf3f855cd68039ecb3efccca73c2097ce11)
+- **Commit-Beschreibung:** LernSax Anmeldung Dokumentation und AutoIt Skript
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/dateien/lernsax-anmelden.au3</code>
+  - <code>themen/minecraft/lernsax-anmelden-dokumentation.md</code>
+
+
 ## 25.09.2026, 21:22:37 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
