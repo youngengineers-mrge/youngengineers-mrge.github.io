@@ -31,8 +31,8 @@ Global Const $sPfadM = _
 ; Versionsinformation
 ; ------------------------------------------------------------
 
-Global Const $sVersion = "4.4"
-Global Const $sVersionStand = "24.09.2026 14:04"
+Global Const $sVersion = "4.5"
+Global Const $sVersionStand = "25.09.2026 21:38"
 
 ; ------------------------------------------------------------
 ; Speicherort fuer die Anmeldedaten
@@ -228,7 +228,7 @@ Func LaufwerkeVerbinden()
 
     ; Persoenlicher LernSax-Pfad des aktuell angemeldeten Benutzers.
     ; Der Benutzername wird vor dem Unterordner \storage eingesetzt.
-    Local $sPfadP = _
+    Local $sPfadL = _
         StringTrimRight($sWebDAVBasis, StringLen("\storage")) & _
         "\" & $sBenutzer & "\storage"
 
@@ -236,14 +236,14 @@ Func LaufwerkeVerbinden()
     GUICtrlSetData($idVerbinden, "Verbinde ...")
 
     ; Vorhandene LernSax-Verbindungen entfernen
-    DriveMapDel("P:")
+    DriveMapDel("L:")
     DriveMapDel("Y:")
     DriveMapDel("M:")
 
-    ; P: Persoenlicher Bereich
-    Local $sP = DriveMapAdd( _
-        "P:", _
-        $sPfadP, _
+    ; L: Lernsax - persoenlicher Bereich
+    Local $sL = DriveMapAdd( _
+        "L:", _
+        $sPfadL, _
         $DMA_DEFAULT, _
         $sBenutzer, _
         $sPasswort _
@@ -275,7 +275,7 @@ Func LaufwerkeVerbinden()
     ; Anmeldedaten nur nach einer zumindest teilweise erfolgreichen
     ; Verbindung speichern. Auf dem Windows-Konto "nutzer" ist das
     ; Speichern grundsaetzlich gesperrt.
-    If $sP <> "" Or $sY <> "" Or $sM <> "" Then
+    If $sL <> "" Or $sY <> "" Or $sM <> "" Then
         If $bSpeichernErlaubt Then
             If BitAND(GUICtrlRead($idMerken), $GUI_CHECKED) Then
                 If Not _AnmeldedatenSpeichern($sBenutzer, $sPasswort) Then
@@ -291,18 +291,18 @@ Func LaufwerkeVerbinden()
 
     ; Ergebnis mit differenzierter Anzeige der drei LernSax-Bereiche
     Local $sStatus = _
-        "P: Persoenlicher Bereich   " & _VerbindungsStatus($sP, False) & @CRLF & _
+        "L: Persoenlicher Bereich   " & _VerbindungsStatus($sL, False) & @CRLF & _
         "Y: Young Engineers         " & _VerbindungsStatus($sY, True) & @CRLF & _
         "M: Minecraft               " & _VerbindungsStatus($sM, True)
 
-    If $sP <> "" And $sY <> "" And $sM <> "" Then
+    If $sL <> "" And $sY <> "" And $sM <> "" Then
         MsgBox(64, _
             "LernSax", _
             "Anmeldung erfolgreich." & @CRLF & @CRLF & _
             $sStatus _
         )
 
-    ElseIf $sP = "" And $sY = "" And $sM = "" Then
+    ElseIf $sL = "" And $sY = "" And $sM = "" Then
         MsgBox(16, _
             "LernSax", _
             "Es konnte kein LernSax-Laufwerk verbunden werden." & @CRLF & _

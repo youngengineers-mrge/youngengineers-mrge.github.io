@@ -1,7 +1,10 @@
 # Dokumentation: `lernsax-anmelden.au3`
 
-**Stand:** 24.09.2026  
+**Version:** 4.5  
+**Stand:** 25.09.2026, 21:38 Uhr  
 **Programmtyp:** AutoIt-Skript für Windows  
+**Einsatzort:** Martin-Rinckart-Gymnasium Eilenburg  
+**Zielgruppe:** Mitglieder der AGs **Minecraft** und **Young Engineers**  
 **Aufgabe:** Anmeldung bei LernSax und Einbindung ausgewählter LernSax-Bereiche als Windows-Netzlaufwerke
 
 ---
@@ -14,7 +17,7 @@ Nach der Anmeldung werden drei LernSax-Bereiche als Windows-Laufwerke eingebunde
 
 | Laufwerk | Bereich | Ziel |
 |---|---|---|
-| `P:` | persönlicher LernSax-Bereich | persönlicher `storage`-Ordner des angemeldeten Nutzers |
+| `L:` | persönlicher LernSax-Bereich | persönlicher `storage`-Ordner des angemeldeten Nutzers |
 | `Y:` | Young Engineers | gemeinsamer `storage`-Ordner der Gruppe |
 | `M:` | Minecraft | gemeinsamer `storage`-Ordner der Minecraft-Gruppe |
 
@@ -23,10 +26,12 @@ Dadurch können nicht nur das AutoIt-Programm selbst, sondern auch andere Window
 Beispiele:
 
 ```text
-P:\
+L:\
 Y:\
 M:\
 ```
+
+`L:` wird für den persönlichen LernSax-Bereich verwendet, weil `P:` im Schulnetz bereits belegt ist.
 
 ---
 
@@ -39,14 +44,35 @@ Benötigt werden:
 - eine funktionierende Internetverbindung,
 - ein gültiger LernSax-Zugang,
 - der Windows-WebDAV-Zugriff auf `www.lernsax.de`,
-- freie Laufwerksbuchstaben `P:`, `Y:` und `M:`,
+- die freien Laufwerksbuchstaben `L:`, `Y:` und `M:`,
+- für `Y:` bzw. `M:` die erforderliche Mitgliedschaft oder Berechtigung in den entsprechenden LernSax-Gruppen,
 - AutoIt zum Starten der `.au3`-Datei oder eine daraus erzeugte `.exe`.
 
 Die Laufwerksverbindungen werden nicht dauerhaft gespeichert. Sie gelten für die aktuelle Windows-Sitzung.
 
 ---
 
-## 3. Verwendete WebDAV-Pfade
+## 3. Bereits vorhandene Schulnetzlaufwerke
+
+Nach der Anmeldung am Schul-PC sind diese Laufwerke belegt:
+
+| Laufwerk | Schulnetzwerk-Pfad |
+|---|---|
+| `H:` | `\\server\default-school\teachers\l1057` |
+| `K:` | `\\server\default-school\program` |
+| `P:` | `\\server\default-school\share\projects` |
+| `R:` | `\\server\default-school\iso` |
+| `T:` | `\\server\default-school\share` |
+
+Diese Laufwerke dürfen durch das LernSax-Programm nicht verändert oder getrennt werden.
+
+Das Programm trennt beim Start nur Laufwerkszuordnungen, deren Netzwerkpfad auf den LernSax-WebDAV-Server verweist. Die oben genannten Schulnetzlaufwerke verwenden dagegen Pfade unter `\\server\...` und bleiben deshalb unverändert.
+
+Die Wahl von `L:` für den persönlichen LernSax-Bereich verhindert insbesondere eine Kollision mit dem bereits belegten Schulnetzlaufwerk `P:`.
+
+---
+
+## 4. Verwendete WebDAV-Pfade
 
 Das Programm verwendet den LernSax-WebDAV-Zugang über:
 
@@ -54,7 +80,7 @@ Das Programm verwendet den LernSax-WebDAV-Zugang über:
 \\www.lernsax.de@SSL\DavWWWRoot\webdav.php\
 ```
 
-### Persönlicher Bereich `P:`
+### Persönlicher Bereich `L:`
 
 Der persönliche Pfad wird aus dem eingegebenen LernSax-Benutzernamen erzeugt.
 
@@ -87,11 +113,11 @@ Damit wird immer der persönliche `storage`-Ordner des aktuell angemeldeten Lern
 
 ---
 
-## 4. Ablauf beim Programmstart
+## 5. Ablauf beim Programmstart
 
 Beim Start führt das Programm mehrere Schritte automatisch aus.
 
-### 4.1 Vorhandene LernSax-Verbindungen suchen
+### 5.1 Vorhandene LernSax-Verbindungen suchen
 
 Alle Laufwerksbuchstaben von `A:` bis `Z:` werden geprüft.
 
@@ -103,7 +129,7 @@ Dabei wird untersucht, ob ein vorhandenes Netzlaufwerk auf einen LernSax-WebDAV-
 
 Andere Netzlaufwerke bleiben unverändert.
 
-### 4.2 Vorhandene LernSax-Verbindungen trennen
+### 5.2 Vorhandene LernSax-Verbindungen trennen
 
 Gefundene LernSax-Verbindungen werden mit `DriveMapDel()` getrennt.
 
@@ -111,7 +137,7 @@ Nach dem Trennen kontrolliert das Programm nochmals, ob die Zuordnung tatsächli
 
 Dieses Vorgehen soll verhindern, dass alte LernSax-Verbindungen oder Anmeldedaten die neue Anmeldung behindern.
 
-### 4.3 Fehler beim Trennen
+### 5.3 Fehler beim Trennen
 
 Kann mindestens eine LernSax-Verbindung nicht getrennt werden, erscheint die Meldung:
 
@@ -146,7 +172,7 @@ Das AutoIt-Programm wird anschließend beendet.
 
 ---
 
-## 5. Anmeldefenster
+## 6. Anmeldefenster
 
 Wenn alle alten LernSax-Verbindungen erfolgreich entfernt wurden, öffnet sich das Anmeldefenster.
 
@@ -160,23 +186,36 @@ Es enthält:
 - Schaltfläche `Anmeldedaten loeschen`
 - Schaltfläche `Beenden`
 - Laufwerksübersicht
+- Hinweis `Martin-Rinckart-Gymnasium Eilenburg`
+- Hinweis `Für Mitglieder der AGs Minecraft und Young Engineers`
+- Versionsanzeige mit Versionsnummer, Datum und Uhrzeit
 
 Das Kennwort wird im Eingabefeld verdeckt dargestellt.
 
+Die Titelleiste enthält ebenfalls die aktuelle Versionsnummer.
+
 ---
 
-## 6. Anmeldung bei LernSax
+## 7. Anmeldung bei LernSax
 
 Nach Klick auf **Verbinden** liest das Programm Benutzername und Kennwort aus.
 
 Sind Benutzername oder Kennwort leer, wird die Verbindung nicht gestartet und eine entsprechende Meldung angezeigt.
+
+Als Eingabevorlage wird ein Benutzername nach dem Muster
+
+```text
+vorname.nachname@mrge.lernsax.de
+```
+
+verwendet.
 
 Danach wird der persönliche WebDAV-Pfad aus dem eingegebenen Benutzernamen erzeugt.
 
 Vor dem eigentlichen Verbinden versucht das Programm vorsorglich erneut, die Laufwerke
 
 ```text
-P:
+L:
 Y:
 M:
 ```
@@ -187,14 +226,14 @@ Danach werden die drei Laufwerke neu eingerichtet.
 
 ---
 
-## 7. Einbindung der Laufwerke
+## 8. Einbindung der Laufwerke
 
 Die Zuordnung erfolgt mit AutoIts `DriveMapAdd()`.
 
-### `P:` – persönlicher Bereich
+### `L:` – persönlicher Bereich
 
 ```text
-P: → persönlicher LernSax-storage-Ordner
+L: → persönlicher LernSax-storage-Ordner
 ```
 
 Der Benutzername ist dynamisch und entspricht der im Programm eingegebenen LernSax-Adresse.
@@ -217,36 +256,58 @@ Die Verbindungen werden mit `$DMA_DEFAULT` erstellt und damit nicht als dauerhaf
 
 ---
 
-## 8. Rückmeldung nach der Anmeldung
+## 9. Rückmeldung nach der Anmeldung
 
-Das Programm unterscheidet drei Ergebnisse.
+Nach dem Verbindungsversuch zeigt das Programm den Status der drei LernSax-Bereiche getrennt an.
+
+Beispiel:
+
+```text
+L: Persoenlicher Bereich   verbunden
+Y: Young Engineers         verbunden
+M: Minecraft               kein Zugriff / nicht verbunden
+```
 
 ### Alle drei Laufwerke erfolgreich
 
+Wenn `L:`, `Y:` und `M:` verbunden wurden, erscheint:
+
 ```text
 Anmeldung erfolgreich.
-
-Die LernSax-Laufwerke P:, Y: und M: stehen zur Verfuegung.
 ```
+
+Zusätzlich werden alle drei Statuszeilen angezeigt.
 
 ### Kein Laufwerk erfolgreich
 
+Sind alle drei Verbindungen fehlgeschlagen, erscheint:
+
 ```text
 Es konnte kein LernSax-Laufwerk verbunden werden.
-Bitte Benutzername und Kennwort pruefen.
+Bitte Benutzername, Kennwort und Netzwerkverbindung pruefen.
 ```
 
+Zusätzlich werden die Statuszeilen für `L:`, `Y:` und `M:` angezeigt.
+
 ### Nur ein Teil der Laufwerke erfolgreich
+
+Kann beispielsweise der persönliche Bereich `L:` verbunden werden, aber `Y:` oder `M:` nicht, erscheint:
 
 ```text
 Die Anmeldung war erfolgreich, aber nicht alle LernSax-Laufwerke konnten verbunden werden.
 ```
 
-Damit bleibt erkennbar, ob beispielsweise der persönliche Bereich funktioniert, aber ein gemeinsamer Bereich nicht verfügbar ist.
+Zusätzlich weist das Programm darauf hin:
+
+```text
+Bei Y: und M: kann eine fehlende Gruppenmitgliedschaft oder Berechtigung die Ursache sein.
+```
+
+Das Programm kann dabei nicht unterscheiden, ob tatsächlich die Gruppenmitgliedschaft fehlt oder ein anderer Zugriffsfehler vorliegt. Die Anzeige `kein Zugriff / nicht verbunden` beschreibt deshalb nur das Ergebnis des Verbindungsversuchs.
 
 ---
 
-## 9. Laufwerksübersicht
+## 10. Laufwerksübersicht
 
 Das Programm zeigt alle aktuell verfügbaren Laufwerke des PCs an.
 
@@ -254,8 +315,9 @@ Dazu gehören beispielsweise:
 
 - lokale Festplatten,
 - USB-Laufwerke,
+- die bereits vorhandenen Schulnetzlaufwerke,
 - andere Netzlaufwerke,
-- die LernSax-Laufwerke `P:`, `Y:` und `M:`.
+- die LernSax-Laufwerke `L:`, `Y:` und `M:`.
 
 Die Anzeige enthält:
 
@@ -270,17 +332,21 @@ Beispiel:
 ```text
 C:         Fixed
 D:         Fixed
+H:         Network         \\server\default-school\teachers\l1057
+K:         Network         \\server\default-school\program
+L:         Network         \\www.lernsax.de@SSL\DavWWWRoot\...
 M:         Network         \\www.lernsax.de@SSL\DavWWWRoot\...
-P:         Network         \\www.lernsax.de@SSL\DavWWWRoot\...
+P:         Network         \\server\default-school\share\projects
+R:         Network         \\server\default-school\iso
+T:         Network         \\server\default-school\share
 Y:         Network         \\www.lernsax.de@SSL\DavWWWRoot\...
-Z:         Network         \\schulserver\daten
 ```
 
 Über die Schaltfläche **Aktualisieren** kann die Liste jederzeit neu eingelesen werden.
 
 ---
 
-## 10. Speichern der Anmeldedaten
+## 11. Speichern der Anmeldedaten
 
 Auf persönlichen Windows-Konten können Benutzername und Kennwort gespeichert werden.
 
@@ -307,7 +373,7 @@ Ist **Anmeldedaten merken** nicht aktiviert, werden eventuell vorhandene gespeic
 
 ---
 
-## 11. Schutz des Kennworts mit Windows-DPAPI
+## 12. Schutz des Kennworts mit Windows-DPAPI
 
 Das Kennwort wird nicht im Klartext in `lernsax.ini` gespeichert.
 
@@ -340,7 +406,7 @@ Beim Laden läuft der Weg umgekehrt.
 
 ---
 
-## 12. Sonderregel für den Windows-Benutzer `nutzer`
+## 13. Sonderregel für den Windows-Benutzer `nutzer`
 
 Das gemeinsam verwendete Windows-Konto
 
@@ -377,7 +443,7 @@ Diese Regel ist besonders für gemeinsam genutzte Schul-PCs vorgesehen.
 
 ---
 
-## 13. Löschen gespeicherter Anmeldedaten
+## 14. Löschen gespeicherter Anmeldedaten
 
 Auf Windows-Konten, auf denen das Speichern erlaubt ist, kann die Schaltfläche
 
@@ -398,7 +464,28 @@ Auf dem Windows-Konto `nutzer` steht diese Funktion nicht zur Verfügung, weil d
 
 ---
 
-## 14. Verwendete AutoIt-Funktionen und Windows-Schnittstellen
+## 15. Versions- und Zielgruppenanzeige
+
+Die aktuelle Programmversion lautet:
+
+```text
+Version 4.5 - Stand: 25.09.2026 21:38
+```
+
+Die Versionsnummer wird sowohl in der Titelleiste als auch im unteren Bereich des Programmfensters angezeigt.
+
+Zusätzlich stehen im Fenster die Hinweise:
+
+```text
+Martin-Rinckart-Gymnasium Eilenburg
+Für Mitglieder der AGs Minecraft und Young Engineers
+```
+
+Dadurch ist unmittelbar erkennbar, für welchen schulischen Einsatz die Programmversion vorgesehen ist.
+
+---
+
+## 16. Verwendete AutoIt-Funktionen und Windows-Schnittstellen
 
 ### GUI
 
@@ -442,7 +529,7 @@ shutdown /r /f /t 0
 
 ---
 
-## 15. Programmablauf im Überblick
+## 17. Programmablauf im Überblick
 
 ```text
 Programm starten
@@ -458,7 +545,7 @@ LernSax-Netzlaufwerke gefunden?
       └── ja                                 │
            │                                 │
            ▼                                 │
-     Verbindungen trennen                    │
+     LernSax-Verbindungen trennen            │
            │                                 │
            ▼                                 │
      vollständig getrennt?                   │
@@ -489,7 +576,7 @@ Benutzername + Kennwort
       ▼
 Verbinden
       │
-      ├── P: persönlicher storage
+      ├── L: persönlicher storage
       ├── Y: Young Engineers storage
       └── M: Minecraft storage
       │
@@ -500,12 +587,14 @@ Laufwerksübersicht aktualisieren
 ggf. Anmeldedaten speichern
       │
       ▼
-Ergebnis anzeigen
+Status für L:, Y: und M: anzeigen
 ```
+
+Die vorhandenen Schulnetzlaufwerke `H:`, `K:`, `P:`, `R:` und `T:` werden dabei nicht absichtlich verändert oder getrennt.
 
 ---
 
-## 16. Beispiel für den praktischen Einsatz
+## 18. Beispiel für den praktischen Einsatz
 
 Ein Nutzer meldet sich mit
 
@@ -518,7 +607,7 @@ an.
 Das Programm erzeugt:
 
 ```text
-P: → \\www.lernsax.de@SSL\DavWWWRoot\webdav.php\max.mustermann@mrge.lernsax.de\storage
+L: → \\www.lernsax.de@SSL\DavWWWRoot\webdav.php\max.mustermann@mrge.lernsax.de\storage
 Y: → \\www.lernsax.de@SSL\DavWWWRoot\webdav.php\youngengineers@mrge.lernsax.de\storage
 M: → \\www.lernsax.de@SSL\DavWWWRoot\webdav.php\ye-minecraft@mrge.lernsax.de\storage
 ```
@@ -541,7 +630,7 @@ Die genaue Verzeichnisstruktur innerhalb der LernSax-`storage`-Ordner hängt von
 
 ---
 
-## 17. Sicherheitsaspekte
+## 19. Sicherheitsaspekte
 
 ### Positiv
 
@@ -550,19 +639,29 @@ Die genaue Verzeichnisstruktur innerhalb der LernSax-`storage`-Ordner hängt von
 - Auf dem gemeinsam genutzten Windows-Konto `nutzer` wird nichts gespeichert.
 - Alte LernSax-Laufwerksverbindungen werden vor einer neuen Anmeldung bereinigt.
 - Andere Netzlaufwerke werden beim Start nicht absichtlich getrennt.
+- Die bereits vorhandenen Schulnetzlaufwerke `H:`, `K:`, `P:`, `R:` und `T:` werden nicht für LernSax verwendet.
 
 ### Zu beachten
 
 - Wer Zugriff auf ein bereits angemeldetes Windows-Konto hat, kann die während dieser Sitzung eingebundenen LernSax-Laufwerke verwenden.
 - Ein erzwungener Neustart mit `/f` kann nicht gespeicherte Daten in anderen Anwendungen verwerfen.
-- Die Laufwerke `P:`, `Y:` und `M:` müssen für die Nutzung verfügbar sein.
+- Die Laufwerke `L:`, `Y:` und `M:` müssen für die Nutzung verfügbar sein.
+- Der Zugriff auf `Y:` und `M:` setzt die entsprechenden LernSax-Berechtigungen voraus.
 - Änderungen an LernSax-WebDAV-Pfaden können Anpassungen am Programm erforderlich machen.
 
 ---
 
-## 18. Wichtige Dateien
+## 20. Wichtige Dateien
 
 ### Programm
+
+Aktuelle Version:
+
+```text
+lernsax-anmelden-2026-09-25-21-35-v4.5.au3
+```
+
+Allgemeiner Programmname:
 
 ```text
 lernsax-anmelden.au3
@@ -578,24 +677,28 @@ Die INI-Datei existiert nur auf Windows-Konten, auf denen das Speichern von Anme
 
 ---
 
-## 19. Kurzbeschreibung für die Webseite
+## 21. Kurzbeschreibung für die Webseite
 
-> `lernsax-anmelden` meldet einen Nutzer bei LernSax an und bindet den persönlichen Speicher sowie die gemeinsamen Bereiche „Young Engineers“ und „Minecraft“ als Windows-Netzlaufwerke ein. Vorhandene LernSax-Verbindungen werden beim Start automatisch bereinigt; Anmeldedaten können auf persönlichen Windows-Konten verschlüsselt gespeichert werden.
+> `lernsax-anmelden` meldet einen Nutzer bei LernSax an und bindet den persönlichen Speicher als `L:` sowie die gemeinsamen Bereiche „Young Engineers“ und „Minecraft“ als Windows-Netzlaufwerke ein. Vorhandene LernSax-Verbindungen werden beim Start automatisch bereinigt; die bereits vorhandenen Schulnetzlaufwerke bleiben unverändert. Anmeldedaten können auf persönlichen Windows-Konten verschlüsselt gespeichert werden.
 
 ---
 
-## 20. Zusammenfassung
+## 22. Zusammenfassung
 
-Das Programm verbindet LernSax mit der gewohnten Windows-Laufwerksstruktur.
+Das Programm verbindet LernSax mit der gewohnten Windows-Laufwerksstruktur am Martin-Rinckart-Gymnasium Eilenburg.
 
 Die wesentlichen Aufgaben sind:
 
 1. vorhandene LernSax-Netzlaufwerke erkennen und trennen,
-2. bei nicht lösbaren Verbindungskonflikten einen Neustart erzwingen,
-3. LernSax-Benutzername und Kennwort erfassen,
-4. `P:`, `Y:` und `M:` als WebDAV-Netzlaufwerke verbinden,
-5. alle verfügbaren Laufwerke übersichtlich anzeigen,
-6. Anmeldedaten bei geeigneten Windows-Konten verschlüsselt speichern,
-7. das Speichern auf dem gemeinsam genutzten Windows-Konto `nutzer` verhindern.
+2. die bestehenden Schulnetzlaufwerke `H:`, `K:`, `P:`, `R:` und `T:` unangetastet lassen,
+3. bei nicht lösbaren LernSax-Verbindungskonflikten einen Neustart erzwingen,
+4. LernSax-Benutzername und Kennwort erfassen,
+5. `L:`, `Y:` und `M:` als WebDAV-Netzlaufwerke verbinden,
+6. den Verbindungsstatus der drei LernSax-Bereiche getrennt anzeigen,
+7. bei `Y:` und `M:` auf mögliche fehlende Gruppenmitgliedschaft oder Berechtigung hinweisen,
+8. alle verfügbaren Laufwerke übersichtlich anzeigen,
+9. Anmeldedaten bei geeigneten Windows-Konten verschlüsselt speichern,
+10. das Speichern auf dem gemeinsam genutzten Windows-Konto `nutzer` verhindern,
+11. Version, Stand, Schule und Zielgruppe direkt im Programmfenster anzeigen.
 
-Damit können LernSax-Dateien in der AG von Windows-Programmen ähnlich wie Dateien auf lokalen oder klassischen Netzlaufwerken verwendet werden.
+Damit können LernSax-Dateien in den AGs **Minecraft** und **Young Engineers** von Windows-Programmen ähnlich wie Dateien auf lokalen oder klassischen Netzlaufwerken verwendet werden.
