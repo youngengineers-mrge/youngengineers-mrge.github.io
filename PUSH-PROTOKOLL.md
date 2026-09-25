@@ -4,6 +4,19 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 25.09.2026, 21:22:37 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`cb0b941`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/cb0b9417e2fa33f4d976314d3ed81c64ea5d0bdb)
+- **Commit-Beschreibung:** Aktualisierung Minecraft-Dokumentation und AG-Server
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/ag-server.html</code>
+  - <code>themen/minecraft/bilder/mc-ag-logo.png</code>
+  - <code>themen/minecraft/lernsax-anmelden-dokumentation.md</code>
+  - <code>themen/minecraft/lernsax-webdav.md</code>
+
+
 ## 25.09.2026, 00:13:14 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
