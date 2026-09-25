@@ -1,4 +1,4 @@
-# Dokumentation: `lernsax-anmelden-4-korrigiert-v3.au3`
+# Dokumentation: `lernsax-anmelden.au3`
 
 **Stand:** 24.09.2026  
 **Programmtyp:** AutoIt-Skript für Windows  
@@ -8,7 +8,7 @@
 
 ## 1. Zweck des Programms
 
-`lernsax-anmelden-4-korrigiert-v3.au3` erleichtert den Zugriff auf LernSax über WebDAV.
+`lernsax-anmelden.au3` erleichtert den Zugriff auf LernSax über WebDAV.
 
 Nach der Anmeldung werden drei LernSax-Bereiche als Windows-Laufwerke eingebunden:
 
@@ -565,7 +565,7 @@ Die genaue Verzeichnisstruktur innerhalb der LernSax-`storage`-Ordner hängt von
 ### Programm
 
 ```text
-lernsax-anmelden-4-korrigiert-v3.au3
+lernsax-anmelden.au3
 ```
 
 ### Konfigurationsdatei
