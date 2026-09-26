@@ -204,6 +204,12 @@ if (document.readyState === "loading") {
 }
 
 function initialisiereBildVollansicht() {
+  // Großansicht nur für Geräte mit echtem Hover und feinem Zeiger (Maus), nicht auf Touch-Geräten
+  const unterstuetztHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (!unterstuetztHover) {
+    return;
+  }
+
   const vorschaubilder = document.querySelectorAll('.topic-preview-image[src*="-250."], .hover-fullsize-image');
   if (!vorschaubilder.length) {
     return;
@@ -256,16 +262,6 @@ function initialisiereBildVollansicht() {
       if (!vollansicht.classList.contains("is-visible")) {
         schliesseVollansicht();
       }
-    });
-
-    vorschaubild.addEventListener("click", () => {
-      schliesseVollansicht();
-      aktivesVorschaubild = vorschaubild;
-      const bildquelle = vorschaubild.currentSrc || vorschaubild.src;
-      originalbild.src = bildquelle.replace(/-250(?=\.[^./?#]+(?:[?#]|$))/, "");
-      originalbild.alt = vorschaubild.alt;
-      vollansicht.classList.add("is-visible");
-      vollansicht.setAttribute("aria-hidden", "false");
     });
   });
 }
