@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 26.09.2026, 18:45:16 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`0582c73`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/0582c737050a1787ccb201a476f844cacafa0bc1)
+- **Commit-Beschreibung:** Bild-Vollansicht: Hover nur auf Maus-Geraeten mit feinem Zeiger, kein Click-Handler auf Touch
+- **Geänderte Dateien:**
+  - <code>js/script.js</code>
+
+
 ## 25.09.2026, 22:05:09 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
