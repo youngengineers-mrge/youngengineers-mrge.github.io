@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Softwareverteilung auf Schul-PCs · Young Engineers</title>
+  <meta name="author" content="GitHub Copilot">
+  <meta name="client" content="Andreas Sigismund">
+  <meta name="creator" content="GitHub Copilot">
+  <meta name="publisher" content="Andreas Sigismund">
+  <meta name="project" content="AG Young Engineers">
+  <meta name="school" content="Martin-Rinckart-Gymnasium Eilenburg">
+  <meta name="description" content="Problem und L&ouml;sung der lokalen, portablen Softwareverteilung auf Schul-PCs mit AG-Server und ag-tool.cmd.">
+
+  <link rel="stylesheet" href="../../css/my.css">
+</head>
+<body>
+  <header>
+    <h1>Software auf Schul-PCs verteilen</h1>
+    <p>Vorbereitete portable Programme aus dem lokalen Schulnetz bereitstellen</p>
+  </header>
+
+  <main>
+    <nav class="section-nav" aria-label="Navigation im Themenbereich Software">
+      <ul>
+        <li><a class="active" href="index.html" aria-current="page">Softwareverteilung</a></li>
+        <li><a href="../index.html">Themen&uuml;bersicht</a></li>
+        <li><a href="../../index.html">Startseite</a></li>
+      </ul>
+    </nav>
+
+    <section>
+      <div class="section-heading">
+        <h2>Das Problem</h2>
+        <span class="status">Schul-PC</span>
+      </div>
+      <p>
+        F&uuml;r die AG-Arbeit werden Programme wie Thonny, Chromium, WinPython oder PrusaSlicer
+        ben&ouml;tigt. Auf einem Schul-PC ist eine herk&ouml;mmliche Installation jedoch oft nicht
+        m&ouml;glich oder nicht sinnvoll: Es fehlen Administratorrechte, jeder Rechner m&uuml;sste
+        einzeln eingerichtet werden und gro&szlig;e Downloads aus dem Internet belasten die
+        verf&uuml;gbare Verbindung.
+      </p>
+      <div class="grid">
+        <article class="project-card">
+          <h3>Keine klassische Installation</h3>
+          <p>Die Programme werden als vorbereitete portable Archive bereitgestellt. Sie werden nicht in die Windows-Installation eingetragen, sondern in einen gemeinsamen Programmordner entpackt.</p>
+        </article>
+        <article class="project-card">
+          <h3>Einheitlicher Stand</h3>
+          <p>Alle Schul-PCs erhalten dieselben ausgew&auml;hlten Versionen. Das reduziert Unterschiede bei Anleitungen, Unterricht und Fehlersuche.</p>
+        </article>
+        <article class="project-card">
+          <h3>Weniger Internetverkehr</h3>
+          <p>Die Archive liegen einmal im lokalen Softwaredepot. Die PCs holen sie aus dem Schulnetz statt jedes Paket selbst aus dem Internet zu laden.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Die L&ouml;sung: lokales Softwaredepot</h2>
+      <p>
+        Der <strong>AG-Server</strong> stellt die vorbereiteten Archive im lokalen Netzwerk zur
+        Verf&uuml;gung. Das Skript <code>ag-tool.cmd</code> auf dem Schul-PC l&auml;dt die ben&ouml;tigten
+        Pakete herunter, entpackt sie und legt sie unter
+        <code>C:\Users\Public\Programme\</code> ab. Damit wird die Software bereitgestellt,
+        ohne dass eine klassische Installation mit erweiterten Rechten erforderlich ist.
+      </p>
+      <pre aria-label="Ablauf der Softwareverteilung"><code>AG-Server
+    |
+    | HTTP :8000 im lokalen Netzwerk
+    v
+ag-tool.cmd auf dem Schul-PC
+    |
+    +-- curl.exe: Archive herunterladen
+    +-- 7-Zip: Archive entpacken
+    '-- C:\Users\Public\Programme\</code></pre>
+    </section>
+
+    <section>
+      <h2>So l&auml;uft die Bereitstellung ab</h2>
+      <ol>
+        <li>Die vorbereiteten Softwarearchive liegen im Wartungsbereich des AG-Servers.</li>
+        <li><code>ag-tool.cmd</code> pr&uuml;ft, ob 7-Zip verf&uuml;gbar ist, und stellt die ben&ouml;tigten Werkzeuge bei Bedarf bereit.</li>
+        <li>Das Skript ruft die vorgesehenen Archive &uuml;ber den lokalen Server ab.</li>
+        <li>Die Archive werden in den &ouml;ffentlichen Programmordner entpackt.</li>
+        <li>Eine Erfolgsdatei best&auml;tigt die abgeschlossene Einrichtung und verhindert unn&ouml;tige Wiederholungen.</li>
+      </ol>
+      <aside aria-labelledby="marker-datei">
+        <h2 id="marker-datei">Ergebnis der Einrichtung</h2>
+        <p>
+          Nach erfolgreichem Durchlauf wird
+          <code>C:\Users\Public\Programme\ag-tool-v1.0-erfolgreich.txt</code> angelegt.
+          Sie dient als einfache Markierung, dass die Softwarebereitstellung bereits
+          abgeschlossen wurde.
+        </p>
+      </aside>
+    </section>
+
+    <section>
+      <h2>Aktuell vorgesehene Programme</h2>
+      <div class="grid">
+        <article class="project-card">
+          <h3>Programmarchive</h3>
+          <ul>
+            <li>Thonny 5.0.0 f&uuml;r Python</li>
+            <li>Chromium Portable</li>
+            <li>WinPython 3.14.7.0dot</li>
+            <li>Prusa3D f&uuml;r den 3D-Druck</li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <h3>Softwaredepot</h3>
+          <p>
+            Im Wartungsordner sind dar&uuml;ber hinaus Archive f&uuml;r Arduino IDE, Firefox und
+            Chrome vorbereitet. Nicht jedes vorhandene Archiv wird derzeit schon durch
+            <code>ag-tool.cmd</code> verarbeitet; diese Pakete geh&ouml;ren zur n&auml;chsten
+            Ausbaustufe.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Grenzen und n&auml;chste Schritte</h2>
+      <p>
+        Das Verfahren ist f&uuml;r die AG und das lokale Schulnetz gedacht. Es ersetzt keine
+        zentrale Softwareverteilung der Schule und setzt voraus, dass der AG-Server und
+        seine vorbereiteten Archive erreichbar sind. Die Liste der verteilten Programme
+        muss au&szlig;erdem gepflegt und vor dem Einsatz gepr&uuml;ft werden.
+      </p>
+      <p class="note">
+        Die vollst&auml;ndige Fassung mit den technischen Details befindet sich auf dem AG-USB-Stick;
+        die gro&szlig;en Archive werden nicht in das GitHub-Repository &uuml;bertragen.
+      </p>
+    </section>
+
+    <section>
+      <h2>Dokumentation und Arbeitsst&auml;nde</h2>
+      <div class="grid">
+        <article class="project-card">
+          <h3>Zusammenfassung der L&ouml;sung</h3>
+          <p>Die ChatGPT-Arbeitsnotiz beschreibt AG-Server, Softwaredepot, Wartungsskript und Zielbild.</p>
+          <a href="../../tools/md-viewer.html?file=/themen/software/chatgpt.md&amp;title=Softwareverteilung%20-%20Zusammenfassung">Markdown-Dokument anzeigen</a>
+        </article>
+        <article class="project-card">
+          <h3>Pr&uuml;fstand des Projekts</h3>
+          <p>Die Copilot-Arbeitsnotiz dokumentiert den gepr&uuml;ften Funktionsumfang und offene Hinweise zum aktuellen Stand.</p>
+          <a href="../../tools/md-viewer.html?file=/themen/software/copilot.md&amp;title=Softwareverteilung%20-%20Arbeitsstand">Markdown-Dokument anzeigen</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; Andreas Sigismund &middot; AG Young Engineers &middot; Martin-Rinckart-Gymnasium Eilenburg<br>
+    Inhaltliche Pr&uuml;fung und Ver&ouml;ffentlichung: Andreas Sigismund &middot; Erstellung und redaktionelle Aufbereitung dieser Seite: GitHub Copilot<br>
+    Letzte &Auml;nderung: <span id="lastModified">TT.MM.JJJJ, hh:mm Uhr</span>
+    <script src="../../js/script.js"></script>
+  </footer>
+</body>
+</html>
