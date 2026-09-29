@@ -4,6 +4,18 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 29.09.2026, 08:00:07 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`940bdf2`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/940bdf2ef63d91a0c91ef322cccdfd0faaadb16b)
+- **Commit-Beschreibung:** AG-Server-Archiv aktualisieren
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/ag-server.html</code>
+  - <code>themen/minecraft/dateien/AG-Server-2026-09-29.zip</code>
+  - <code>themen/software/AG-Server-2026-09-29.zip</code>
+
+
 ## 29.09.2026, 07:08:18 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
