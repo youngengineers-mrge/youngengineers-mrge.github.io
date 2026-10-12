@@ -145,4 +145,4 @@ Dieser Ablauf gilt erst nach Fertigstellung und Prüfung der Spielmechanik.
 - Alle erhalten die festgelegte Ausrüstung.
 - Beide Flaggen befinden sich an ihren Ausgangspositionen.
 - Punktestand und Spielzeit sind zurückgesetzt.
-- Jedes Team erhält kurz Zeit zur
+- Jedes Team erhält kurz Zeit für Absprachen und die Planung der ersten Schritte.
