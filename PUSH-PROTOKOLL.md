@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 12.10.2026, 15:44:02 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`82d01e5`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/82d01e5e094dcdd6949486271f67bfaac3e0f587)
+- **Commit-Beschreibung:** Update links and headings in banner document
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/spielen/ctf-geheimnis_der_beiden_banner.md</code>
+
+
 ## 12.10.2026, 15:39:28 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
