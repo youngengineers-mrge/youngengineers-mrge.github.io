@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 12.10.2026, 08:21:31 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`f8470f0`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/f8470f0b3145b861035be83555f3c923299043c4)
+- **Commit-Beschreibung:** Document issues found during link check
+- **Geänderte Dateien:**
+  - <code>.github/ISSUES_TO_CREATE.md</code>
+
+
 ## 29.09.2026, 08:00:07 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
