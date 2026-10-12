@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 12.10.2026, 10:19:41 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`6cd2bb6`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/6cd2bb6bd554cc4c1fed09d04ab6accd098c163c)
+- **Commit-Beschreibung:** Restore original page with new &quot;Unsere Spiele&quot; section containing only heading
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/spielen.html</code>
+
+
 ## 12.10.2026, 10:05:04 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
