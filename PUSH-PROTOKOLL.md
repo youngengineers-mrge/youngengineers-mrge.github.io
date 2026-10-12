@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 12.10.2026, 15:26:26 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`6eb35ab`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/6eb35ab2e53305cfc185a4c4a1751e492367f255)
+- **Commit-Beschreibung:** Fix image reference in CTF banner document
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/spielen/ctf-geheimnis_der_beiden_banner.md</code>
+
+
 ## 12.10.2026, 15:23:49 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
