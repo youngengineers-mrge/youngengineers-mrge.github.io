@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 12.10.2026, 10:05:04 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`a756d46`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/a756d46e88bd726d792eb871aecce339ea4fa85f)
+- **Commit-Beschreibung:** Add new section &quot;Unsere Spiele&quot; after &quot;Was wir im gemeinsamen Spielen lernen&quot;
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/spielen.html</code>
+
+
 ## 12.10.2026, 08:21:31 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
