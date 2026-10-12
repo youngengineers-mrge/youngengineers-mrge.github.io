@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 12.10.2026, 15:11:40 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`ab1cc6b`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/ab1cc6b326cdb03e321013eb38e06b0d37d25212)
+- **Commit-Beschreibung:** Rename themen/minecraft/spielen/Code-Spielleiter.md to themen/minecraft/spielen ctf-geheimnis_der_beiden_banner-spielleiter.md
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/spielen ctf-geheimnis_der_beiden_banner-spielleiter.md</code>
+
+
 ## 12.10.2026, 15:09:05 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
