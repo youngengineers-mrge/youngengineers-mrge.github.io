@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 12.10.2026, 11:05:56 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`5afc641`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/5afc641e522fee90bf7fc197cb917e288db5c739)
+- **Commit-Beschreibung:** Add link to CTF game under &quot;Unsere Spiele&quot; section
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/spielen.html</code>
+
+
 ## 12.10.2026, 10:45:52 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
