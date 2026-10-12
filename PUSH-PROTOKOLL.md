@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 12.10.2026, 13:59:12 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`af2a20e`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/af2a20edb7390a5ac2d2b031f170da90c3ea4c47)
+- **Commit-Beschreibung:** Create decision document for Minecraft game rules
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/spielen/Idé.md</code>
+
+
 ## 12.10.2026, 13:39:01 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
