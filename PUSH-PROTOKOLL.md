@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 12.10.2026, 15:09:05 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`350e6c8`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/350e6c81616300772ade38231324843f44409475)
+- **Commit-Beschreibung:** Create game leader guide for Minecraft CTF
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/spielen/Code-Spielleiter.md</code>
+
+
 ## 12.10.2026, 14:30:33 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
