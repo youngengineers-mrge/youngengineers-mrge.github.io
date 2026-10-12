@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 12.10.2026, 15:32:17 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`79350a1`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/79350a112d2fd7aad6cefd4f1c3c696352f52948)
+- **Commit-Beschreibung:** Revise content and images in CTF game description
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/spielen/ctf-geheimnis_der_beiden_banner.md</code>
+
+
 ## 12.10.2026, 15:28:38 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
