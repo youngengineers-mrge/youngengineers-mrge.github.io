@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 12.10.2026, 15:39:28 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`6940172`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/694017256721fdaac7328a09dfa4e54ac8eade72)
+- **Commit-Beschreibung:** Change image links to text links in markdown
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/spielen/ctf-geheimnis_der_beiden_banner.md</code>
+
+
 ## 12.10.2026, 15:36:07 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
