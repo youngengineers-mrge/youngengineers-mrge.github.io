@@ -1,5 +1,7 @@
 # Das Geheimnis der beiden Banner
 
+![Das Geheimnis der beiden Banner](ctf-geheimnis-banner.png)
+
 Seit vielen Jahren stehen sich zwei Festungen gegenüber: Rotfels und Blauburg. Zwischen ihnen liegt ein Tal voller Hindernisse, verborgener Wege und guter Verstecke.
 
 Früher wachten beide Festungen gemeinsam über das Tal. Doch eines Morgens wurde eine geheimnisvolle Botschaft an ihren Toren gefunden:
