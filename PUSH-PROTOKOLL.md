@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 12.10.2026, 14:30:33 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`d98cea2`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/d98cea2c5b213b369f0eb8631dec7b3c49b74c1d)
+- **Commit-Beschreibung:** Revise decision document for Minecraft Capture the Flag
+- **Geänderte Dateien:**
+  - <code>themen/minecraft/spielen/ctf-geheimnis_der_beiden_banner-plan.md</code>
+
+
 ## 12.10.2026, 14:13:57 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
