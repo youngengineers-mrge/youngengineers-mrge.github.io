@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ein UND-Gatter als Minecraft-Mod – Young Engineers</title><meta name="author" content="Andreas Sigismund"><link rel="stylesheet" href="../../../css/my.css"><style>
+main{max-width:1000px;margin:0 auto;padding:1rem 1.3rem 4rem;line-height:1.65}section{border:1px solid #b7c4ba;border-radius:13px;padding:1rem 1.25rem;margin:1.2rem 0}section h2{margin-top:.1rem}a{overflow-wrap:anywhere}code{overflow-wrap:anywhere}pre{padding:1rem;overflow-x:auto;background:#1b2835;color:#f0f6fb;border-radius:9px}pre code{color:inherit}table{border-collapse:collapse;width:100%}th,td{border:1px solid #a5b2a9;padding:.55rem;text-align:center}th{background:#e2ede3;color:#20352a}.note{background:#fff4da;color:#533b19;border-left:4px solid #d09b36;padding:.7rem 1rem}.task{background:#eaf5ed;color:#214a30;border-left:4px solid #39835c;padding:.7rem 1rem}.flex{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}.panel{background:#eef3ed;color:#1e352a;border-radius:12px;padding:1rem}.panel button{padding:.65rem 1.2rem;border:2px solid #4e7e5b;border-radius:8px;background:#fff;color:#173722;cursor:pointer;font-weight:bold}.panel button[aria-pressed="true"]{background:#2e7d47;color:#fff}.diagram{max-width:580px;width:100%;height:auto;display:block;margin:1rem auto}.caption{font-size:.92rem;color:#4a594f}.small{font-size:.9rem}details{border:1px solid #b6c3b9;border-radius:7px;padding:.6rem;margin:.5rem 0}summary{cursor:pointer;font-weight:bold}@media print{.panel button{display:none}section{break-inside:avoid}}</style></head><body><header><h1>Young Engineers: Das UND-Gatter als eigener Minecraft-Block</h1></header><main><nav><a href="../logikbloecke.html">← Logikblöcke</a> · <a href="und-gatter.html">Redstone-UND-Gatter</a> · <a href="../mods.html">Eigene Mods</a></nav>
+<p><strong>Unsere Mission:</strong> Eine Redstone-Schaltung aus mehreren Bauteilen wird zu <strong>einem einzigen programmierbaren Block</strong>. Wir lernen dabei die Verbindung von Digitaltechnik, Java und Minecraft-Modding.</p>
+<section><h2>1. Was unser Block können soll</h2><p>Der Block erhält zwei Eingänge und einen Ausgang. Er kann waagerecht gedreht werden, ohne dass sich seine Funktion ändert. Ein aktiver Eingang bedeutet: Redstone-Signalstärke <strong>größer als 0</strong>. Ein aktiver Ausgang liefert die Stärke <strong>15</strong>.</p>
+<svg class="diagram" viewBox="0 0 560 290" role="img" aria-label="Perspektivische Funktionsskizze eines UND-Gatters mit den Eingängen A und B links und rechts und Ausgang Q vorne">
+<rect width="560" height="290" rx="12" fill="#eef3ef"/><path d="M210 85 L320 43 L414 92 L302 136 Z" fill="#8babb7" stroke="#314e5a" stroke-width="3"/><path d="M210 85 L302 136 L302 247 L210 194 Z" fill="#54778b" stroke="#314e5a" stroke-width="3"/><path d="M302 136 L414 92 L414 198 L302 247 Z" fill="#3e6075" stroke="#314e5a" stroke-width="3"/>
+<text x="266" y="173" text-anchor="middle" font-size="36" fill="#fff" font-weight="bold">&amp;</text><text x="358" y="183" text-anchor="middle" font-size="28" fill="#d7ffe4">Q</text>
+<path d="M73 148 H195" stroke="#c34740" stroke-width="13" stroke-linecap="round"/><polygon points="196,135 218,148 196,161" fill="#c34740"/><text x="105" y="125" font-size="24" fill="#70261f">A</text>
+<path d="M474 85 L419 120" stroke="#c34740" stroke-width="13" stroke-linecap="round"/><polygon points="414,108 401,132 428,127" fill="#c34740"/><text x="476" y="75" font-size="24" fill="#70261f">B</text>
+<path d="M364 216 L364 264" stroke="#278b4e" stroke-width="13" stroke-linecap="round"/><polygon points="350,257 364,281 378,257" fill="#278b4e"/><text x="387" y="270" font-size="24" fill="#1f6539">Q</text></svg>
+<p class="caption">Entwurfsskizze: zwei Eingänge, ein Ausgang. Die genaue Lage der Minecraft-Blockseiten wird im nächsten Bild festgelegt.</p></section>
+<section><h2>2. Draufsicht – die Anschlüsse sind eindeutig</h2><p>Der Block schaut zunächst nach <strong>Süden</strong> (im Bild nach unten). Eingang A liegt links (= Osten, wenn man in Blickrichtung Süden schaut), Eingang B rechts (= Westen), Ausgang Q vorne (= Süden). Die Rückseite hat keinen Anschluss. Wir verwenden hier bewusst eine <strong>festgelegte Konvention</strong>, die wir beim Programmieren und Testen unverändert beibehalten.</p>
+<svg class="diagram" viewBox="0 0 550 350" role="img" aria-label="Draufsicht: Eingang A östlich rechts, Eingang B westlich links, Ausgang Q südlich unten; Norden oben">
+<rect width="550" height="350" rx="12" fill="#edf3ec"/><g fill="none" stroke="#a9b9a8" stroke-width="2"><path d="M0 85H550M0 175H550M0 265H550M90 0V350M180 0V350M270 0V350M360 0V350M450 0V350"/></g>
+<rect x="186" y="92" width="178" height="165" rx="12" fill="#577a8b" stroke="#264959" stroke-width="5"/><text x="275" y="164" text-anchor="middle" font-size="55" fill="#fff" font-weight="bold">&amp;</text><text x="275" y="204" text-anchor="middle" font-size="18" fill="#fff">Blickrichtung ↓</text>
+<path d="M95 176 H178" stroke="#cb4b42" stroke-width="13"/><polygon points="181,162 202,176 181,190" fill="#cb4b42"/><text x="114" y="154" font-size="20" fill="#782c27" font-weight="bold">B</text>
+<path d="M453 176 H371" stroke="#cb4b42" stroke-width="13"/><polygon points="368,162 347,176 368,190" fill="#cb4b42"/><text x="426" y="154" font-size="20" fill="#782c27" font-weight="bold">A</text>
+<path d="M275 260 V320" stroke="#248748" stroke-width="13"/><polygon points="261,316 275,339 289,316" fill="#248748"/><text x="299" y="311" font-size="20" fill="#20643b" font-weight="bold">Q</text><text x="275" y="33" text-anchor="middle" font-size="18" fill="#365040">Norden ↑ / Rückseite</text><text x="275" y="345" text-anchor="middle" font-size="15" fill="#365040">Süden / Vorderseite</text></svg>
+<p class="note"><strong>Achtung zur Orientierung:</strong> Bei Blickrichtung Süden ist Osten links aus Sicht der Figur, aber rechts auf einer Karte mit Norden oben. Darum benutzen wir für das Programm vor allem <strong>Himmelsrichtungen</strong> und testen jede Drehung ausdrücklich.</p></section>
+<section><h2>3. Interaktiver Schaltungstest</h2><p>Schalte A und B ein oder aus. Der Simulator berechnet sofort <code>Q = A &amp;&amp; B</code>. Dieser Test funktioniert direkt im Browser, noch ohne Minecraft.</p>
+<div class="panel"><div class="flex"><button id="a" type="button" aria-pressed="false">A: AUS (0)</button><button id="b" type="button" aria-pressed="false">B: AUS (0)</button><strong id="q" aria-live="polite">Q: AUS (0)</strong></div><p id="why">Beide Eingänge sind aus. Der Ausgang bleibt aus.</p><svg viewBox="0 0 440 100" style="width:100%;max-width:440px;height:auto" role="img" aria-label="Signalbild des UND-Gatters"><path id="aline" d="M10 28H170" stroke="#666" stroke-width="12"/><path id="bline" d="M10 72H170" stroke="#666" stroke-width="12"/><rect x="170" y="9" width="98" height="82" rx="8" fill="#54788c"/><text x="219" y="65" text-anchor="middle" fill="white" font-size="48">&amp;</text><path id="qline" d="M268 50H382" stroke="#666" stroke-width="12"/><circle id="lamp" cx="407" cy="50" r="24" fill="#7c7c7c" stroke="#555" stroke-width="3"/></svg></div>
+<table><thead><tr><th>A</th><th>B</th><th>Q</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td><strong>1</strong></td></tr></tbody></table>
+<p class="task"><strong>Dein Auftrag:</strong> Probiere alle vier Kombinationen aus. Warum reicht ein einzelner eingeschalteter Hebel nicht aus?</p></section>
+<section><h2>4. Unser erster Java-Baustein: die reine Logik</h2><p>Bevor wir uns mit Minecraft-Klassen beschäftigen, programmieren wir die Wahrheitstabelle als <strong>kleine Java-Funktion</strong>. Dieser Code ist normales Java und unabhängig von der Fabric-API.</p>
+<pre><code>package de.mrge.youngengineers.logic;
+
+public final class UndLogik {
+    private UndLogik() {}
+
+    public static boolean berechne(
+            boolean eingangA,
+            boolean eingangB) {
+        return eingangA &amp;&amp; eingangB;
+    }
+
+    public static int signalstaerke(
+            int signalA,
+            int signalB) {
+        boolean a = signalA &gt; 0;
+        boolean b = signalB &gt; 0;
+        return berechne(a, b) ? 15 : 0;
+    }
+}</code></pre>
+<p><strong>Erklärung:</strong> <code>&amp;&amp;</code> bedeutet logisches UND. Mit <code>signalA &gt; 0</code> wandeln wir die Minecraft-Signalstärke (0 bis 15) in EIN oder AUS um. Der Ausgang wird entweder 15 oder 0.</p></section>
+<section><h2>5. Java zunächst ohne Minecraft testen</h2><p>Erstelle im gleichen Java-Paket die Klasse <code>UndLogikTest.java</code> (zunächst als einfaches Testprogramm). Sie kann unabhängig von der Mod-Registrierung gestartet werden.</p>
+<pre><code>package de.mrge.youngengineers.logic;
+
+public class UndLogikTest {
+    public static void main(String[] args) {
+        pruefe(0, 0, 0);
+        pruefe(0, 15, 0);
+        pruefe(15, 0, 0);
+        pruefe(15, 15, 15);
+        pruefe(1, 1, 15);
+        pruefe(0, 1, 0);
+        System.out.println("Alle UND-Tests bestanden!");
+    }
+
+    private static void pruefe(int a, int b, int erwartet) {
+        int q = UndLogik.signalstaerke(a, b);
+        if (q != erwartet) {
+            throw new AssertionError(
+                "A=" + a + ", B=" + b +
+                ": erwartet " + erwartet + ", erhalten " + q
+            );
+        }
+    }
+}</code></pre>
+<p>Führe die <code>main</code>-Methode in VS Code über die Java-Erweiterung aus. Erscheint <code>Alle UND-Tests bestanden!</code>, ist die mathematische Funktion korrekt implementiert. Der Test beweist <em>noch nicht</em>, dass die Minecraft-Redstone-Anbindung funktioniert.</p></section>
+<section><h2>6. Der nächste Java-Schritt: Minecraft-Anbindung</h2><p>Jetzt wird aus der normalen Java-Funktion ein Minecraft-Block. Die technische Umsetzung besteht aus sechs überschaubaren Aufgaben:</p>
+<ol><li><strong>Block registrieren:</strong> Wir legen die Block-ID <code>youngengineers_logic:und_gatter</code> fest, registrieren Block und BlockItem und fügen das Item dem Kreativinventar hinzu.</li><li><strong>Blickrichtung speichern:</strong> Der Block erhält eine horizontale <code>FACING</code>-Eigenschaft. Beim Platzieren richtet er sich nach der Spielerposition aus.</li><li><strong>Ausgangszustand speichern:</strong> Eine boolesche Eigenschaft <code>POWERED</code> zeigt an, ob Q gerade 0 oder 15 ist.</li><li><strong>Eingänge lesen:</strong> Bei Änderungen an Nachbarblöcken lesen wir das eingehende Redstone-Signal an den zwei festgelegten Seiten A und B. Dabei muss verhindert werden, dass unser eigener Ausgang als Eingang gezählt wird.</li><li><strong>Logik berechnen:</strong> Wir rufen <code>UndLogik.signalstaerke(a,b)</code> auf und aktualisieren bei Bedarf <code>POWERED</code>.</li><li><strong>Ausgang anbieten:</strong> Wir liefern das Redstone-Signal ausschließlich an der Q-Seite, benachrichtigen die Nachbarn über Zustandsänderungen und prüfen, ob Repeater sowie andere Logikblöcke das Signal erkennen.</li></ol>
+<p class="note"><strong>Technischer Prüfpunkt:</strong> Die vollständigen Methoden und Signaturen zur Redstone-Abfrage, Blockrotation, Nachbaraktualisierung und Signalabgabe sind von den Mappings und der API der tatsächlich verwendeten Minecraft-/Fabric-Version abhängig. Deshalb ist dieser Abschnitt <strong>noch keine kopierfertige Fabric-Blockklasse</strong>. Wir ergänzen sie erst nach dem ersten erfolgreichen Gradle-Build der Mod für Minecraft 26.2. Ungeprüfte API-Aufrufe wären für Schüler besonders frustrierend.</p></section>
+<section><h2>7. So prüfen wir später den echten Block in Minecraft</h2><p>Baue eine kleine Testanlage auf einer ebenen Plattform:</p>
+<svg class="diagram" viewBox="0 0 550 240" role="img" aria-label="Testaufbau in Draufsicht: Hebel A rechts und Hebel B links führen zum UND-Block in der Mitte, Ausgang Q nach unten zur Lampe">
+<rect width="550" height="240" rx="12" fill="#edf3ec"/><rect x="207" y="70" width="130" height="110" rx="12" fill="#50788a" stroke="#315667" stroke-width="4"/><text x="272" y="135" text-anchor="middle" font-size="40" fill="white" font-weight="bold">&amp;</text>
+<rect x="38" y="94" width="80" height="62" rx="8" fill="#a1b5a0" stroke="#56725b" stroke-width="3"/><text x="78" y="130" text-anchor="middle" font-size="18" fill="#263e2b">B</text><path d="M118 125H205" stroke="#bf4a42" stroke-width="9"/><rect x="426" y="94" width="80" height="62" rx="8" fill="#a1b5a0" stroke="#56725b" stroke-width="3"/><text x="466" y="130" text-anchor="middle" font-size="18" fill="#263e2b">A</text><path d="M337 125H426" stroke="#bf4a42" stroke-width="9"/><path d="M272 180V204" stroke="#25844c" stroke-width="9"/><rect x="247" y="202" width="50" height="30" rx="5" fill="#c0a63f"/><text x="307" y="225" font-size="15" fill="#294d32">Q</text></svg>
+<ol><li>Starte Minecraft in einer separaten Entwicklungs- oder Testinstanz.</li><li>Gib dir den neuen Block mit <code>/give @s youngengineers_logic:und_gatter</code>, sobald er registriert ist.</li><li>Platziere ihn so, dass Q nach Süden zeigt.</li><li>Verbinde A und B mit je einer getrennten, schaltbaren Redstone-Leitung. Die Leitungen dürfen sich nicht berühren.</li><li>Schließe an Q zuerst eine Lampe an und teste die vier Eingangskombinationen.</li><li>Ersetze die Lampe testweise durch einen Repeater. Prüfe, ob dieser zuverlässig angesteuert wird.</li><li>Drehe den Block nach Osten, Norden und Westen und wiederhole die vier Tests.</li></ol>
+<p><strong>Abnahmekriterien:</strong> 4 Eingangskombinationen × 4 Blockausrichtungen = <strong>16 Tests</strong>. Hinzu kommen ein Test mit Signalstärke 1, ein Test mit Signalstärke 15 und ein Test der Signalweitergabe an einen Repeater.</p></section>
+<section><h2>8. Fehlersuche und Verbesserungen</h2><details><summary>Der Java-Test schlägt fehl</summary><p>Prüfe die Bedingung <code>eingangA &amp;&amp; eingangB</code> und die Umwandlung <code>signal &gt; 0</code>. Die Testwerte müssen 0 oder 15 ergeben.</p></details><details><summary>Der Block erscheint nicht im Kreativinventar</summary><p>Blockregistrierung, BlockItem, Initialisierung und die Registrierung in einer Kreativregisterkarte prüfen.</p></details><details><summary>Q leuchtet auf der falschen Seite</summary><p>Die Blickrichtung des Blocks und die Ableitung der Seiten A, B und Q prüfen. Nach einer Drehung dürfen die Anschlüsse nicht an ihren Welt-Himmelsrichtungen kleben bleiben.</p></details><details><summary>Die Lampe funktioniert, der Repeater nicht</summary><p>Die gerichtete Redstone-Ausgabe und Nachbaraktualisierung prüfen. Ein optisch leuchtender Block beweist noch nicht, dass er ein echtes Redstone-Signal liefert.</p></details><details><summary>Das Spiel friert ein oder Signale flackern</summary><p>Prüfe, ob Zustandsänderungen nur bei tatsächlich geändertem Q ausgelöst werden und ob Nachbaraktualisierungen eine unendliche Rückkopplung erzeugen.</p></details></section>
+<section><h2>9. Drei Erweiterungen für unsere AG</h2><p><strong>ODER-Block:</strong> Ändere die Java-Funktion zu <code>a || b</code>. <strong>XOR-Block:</strong> Verwende <code>a ^ b</code>. <strong>NOT-Block:</strong> Ein Eingang und <code>!a</code>. Anschließend erhält jeder Block ein eigenes Symbol auf der Textur.</p><p class="task"><strong>Forscherauftrag:</strong> Entwickle ein Zwei-Schalter-Schloss, das nur dann öffnet, wenn A = 1 und B = 0 ist. Welche Gatter werden benötigt?</p></section>
+<p class="note"><strong>Status dieses Kurses:</strong> Die Wahrheitstabelle, der interaktive Browser-Simulator und die reine Java-Logik sind vollständig dokumentiert. Die konkrete Fabric-Implementierung und der Minecraft-26.2-Praxistest stehen noch aus. Der Kurs unterscheidet bewusst zwischen geprüftem Grundprinzip und versionsabhängiger Implementierung.</p>
+<p><a href="../logikbloecke.html">← Zurück zur Übersicht Logikblöcke</a></p></main>
+<script>
+(function(){
+let a=false,b=false;
+const $=id=>document.getElementById(id);
+function draw(){
+const q=a&&b;
+$("a").textContent="A: "+(a?"EIN (1)":"AUS (0)");$("b").textContent="B: "+(b?"EIN (1)":"AUS (0)");
+$("a").setAttribute("aria-pressed",String(a));$("b").setAttribute("aria-pressed",String(b));
+$("q").textContent="Q: "+(q?"EIN (1)":"AUS (0)");
+$("why").textContent=q?"Beide Eingänge sind ein. Der Ausgang wird eingeschaltet.":"Mindestens ein Eingang ist aus. Der Ausgang bleibt aus.";
+$("aline").setAttribute("stroke",a?"#e34d45":"#777");
+$("bline").setAttribute("stroke",b?"#e34d45":"#777");
+$("qline").setAttribute("stroke",q?"#2ba65a":"#777");
+$("lamp").setAttribute("fill",q?"#f3ce4b":"#7c7c7c");
+}
+$("a").addEventListener("click",()=>{a=!a;draw()});$("b").addEventListener("click",()=>{b=!b;draw()});draw();
+})();
+</script></body></html>
