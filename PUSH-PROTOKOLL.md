@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 23.10.2026, 21:57:49 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`5b014f1`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/5b014f10a8a42611c80e257c17b9783195d98cbd)
+- **Commit-Beschreibung:** Software-Wartungsartikel veröffentlichen
+- **Geänderte Dateien:**
+  - <code>themen/software/artikel-softwaredepot-und-wartung.md</code>
+
+
 ## 23.10.2026, 21:52:08 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
