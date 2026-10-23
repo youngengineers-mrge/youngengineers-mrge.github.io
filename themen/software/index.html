@@ -130,8 +130,326 @@ ag-tool.cmd auf dem Schul-PC
         muss au&szlig;erdem gepflegt und vor dem Einsatz gepr&uuml;ft werden.
       </p>
       <p class="note">
-        Die vollst&auml;ndige Fassung mit den technischen Details befindet sich auf dem AG-USB-Stick;
-        die gro&szlig;en Archive werden nicht in das GitHub-Repository &uuml;bertragen.
+        Die Weiterentwicklung von der Softwarebereitstellung zur nachvollziehbaren PC-Wartung
+        wird im folgenden Artikel beschrieben. Die gro&szlig;en Softwarearchive werden nicht in
+        das GitHub-Repository &uuml;bertragen.
+      </p>
+    </section>
+
+    <section aria-labelledby="wartung-artikel">
+      <h2 id="wartung-artikel">Vom Softwaredepot zur nachvollziehbaren PC-Wartung</h2>
+      <p><em>Projektstand: 23. Oktober 2026</em></p>
+      <p>
+        Wie bringen wir die ben&ouml;tigten Programme auf unsere AG-Rechner? Und wie sorgen wir
+        anschlie&szlig;end daf&uuml;r, dass Startmen&uuml;, Browser und Benutzerumgebung in einem
+        nachvollziehbaren Zustand bleiben?
+      </p>
+      <p>
+        Unser Projekt begann mit einem lokalen Softwaredepot. Inzwischen ist daraus ein
+        Werkzeugkasten f&uuml;r Softwarebereitstellung, getrennte Wartungsaufgaben und deren
+        Dokumentation geworden. Ein wichtiges Ziel bleibt dabei: Nicht nur &Auml;nderungen
+        auszuf&uuml;hren, sondern sp&auml;ter erkl&auml;ren zu k&ouml;nnen, <strong>welche Aufgabe
+        unter welchem Konto was ver&auml;ndert hat</strong>.
+      </p>
+
+      <h3>Der Ausgangspunkt: Programme aus dem Schulnetz</h3>
+      <p>
+        F&uuml;r unsere AG-Arbeit ben&ouml;tigen wir unter anderem Python-Werkzeuge, Browser und
+        Software f&uuml;r den 3D-Druck. Jeden PC einzeln einzurichten und gro&szlig;e Pakete
+        immer wieder aus dem Internet zu laden, kostet Zeit und belastet die Verbindung.
+      </p>
+      <p>
+        Der lokale <strong>AG-Server</strong> stellt deshalb vorbereitete Softwarearchive im
+        Schulnetz bereit. Das Bereitstellungsskript l&auml;dt ausgew&auml;hlte Pakete herunter
+        und entpackt sie in einen gemeinsamen Programmordner. F&uuml;r geeignete portable
+        Programme ist daf&uuml;r keine klassische Installation erforderlich.
+      </p>
+      <p>
+        Zur bisher beschriebenen Auswahl geh&ouml;ren Thonny, Chromium, WinPython und Prusa3D.
+        Weitere Archive sind vorbereitet. Welche Pakete tats&auml;chlich verteilt werden,
+        entscheidet das jeweilige Skript &ndash; eine vorhandene ZIP-Datei bedeutet noch
+        nicht, dass sie bereits automatisch eingesetzt wird.
+      </p>
+      <p>Das Depot bleibt die Grundlage. Neu hinzugekommen ist die Frage: <strong>Was passiert nach der Bereitstellung?</strong></p>
+
+      <h3>Drei Kontexte statt eines allm&auml;chtigen Skripts</h3>
+      <p>
+        Windows unterscheidet nicht nur zwischen Benutzerkonten, sondern auch zwischen
+        normalen und erh&ouml;hten Prozessrechten. Diese Unterscheidung ist f&uuml;r unsere
+        Wartung entscheidend:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Kontext</th><th>Aufgabe im Projekt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>mcn</code> mit erh&ouml;hten Rechten</td><td>Wartung einrichten, Aufgaben verwalten, Skripte aktualisieren und Analysen erstellen.</td></tr>
+          <tr><td><code>nutzer</code> mit normalen Rechten</td><td>Pers&ouml;nliche Einstellungen des Sch&uuml;lerkontos bearbeiten.</td></tr>
+          <tr><td>SYSTEM</td><td>Rechnerweite Wartung durchf&uuml;hren, etwa zentrale Startmen&uuml;- und Browserkonfiguration.</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Ein Administratorfenster ist nicht automatisch ein SYSTEM-Prozess. Und ein unter
+        <code>mcn</code> gestartetes Skript arbeitet nicht allein deshalb im Profil von
+        <code>nutzer</code>, weil es dessen Einstellungen ver&auml;ndern soll.
+      </p>
+      <p>
+        Benutzerbezogene Wartung und zentrale Wartung werden deshalb &uuml;ber getrennte
+        Windows-Aufgaben ausgef&uuml;hrt. Das aufrufende Wartungskonto kann einen Start
+        anfordern; ausgef&uuml;hrt wird die Aufgabe unter dem in ihrer Definition hinterlegten
+        Konto.
+      </p>
+      <pre><code>AG-Server: Skripte, Pakete und Auftragslisten
+                      |
+                      v
+       Windows-Aufgaben auf dem AG-PC
+           |                    |
+           v                    v
+   SYSTEM-Wartung        Nutzer-Wartung
+   rechnerweit           pers&ouml;nliches Profil
+           \                    /
+            v                  v
+             lokale Protokolle
+                      |
+                      v
+               Task-Analyse</code></pre>
+
+      <h3>Was die Wartung &uuml;bernimmt</h3>
+      <h4>Zentrale Wartung unter SYSTEM</h4>
+      <p>
+        Die zentrale Wartung bearbeitet den gemeinsamen AG-Startmen&uuml;bestand und die daf&uuml;r
+        vorgesehenen pers&ouml;nlichen Men&uuml;ordner des Sch&uuml;lerkontos. Sie pr&uuml;ft
+        au&szlig;erdem SYSTEM-Auftr&auml;ge vom Server, aktualisiert bei Bedarf Open-Shell
+        und setzt zentrale Open-Shell- und Firefox-Vorgaben.
+      </p>
+      <p>Ein weiterer Schritt kann den lokalen Starter der Desktop-R&uuml;ckfallwartung erneuern.</p>
+      <p>
+        Diese Arbeiten sind mehr als eine portable Softwarebereitstellung: Sie k&ouml;nnen
+        systemweite Einstellungen ver&auml;ndern und ben&ouml;tigen entsprechende Rechte.
+        Die Trennung der Aufgaben macht diesen Unterschied sichtbar.
+      </p>
+
+      <h4>Wartung im Sch&uuml;lerkonto</h4>
+      <p>
+        Die Nutzer-Wartung k&uuml;mmert sich um die pers&ouml;nliche Umgebung von
+        <code>nutzer</code>. Dazu geh&ouml;ren Desktopgestaltung, Aufr&auml;umen des
+        pers&ouml;nlichen Desktops, zus&auml;tzliche Nutzer-Auftr&auml;ge sowie
+        benutzerbezogene Open-Shell- und Firefox-Einstellungen.
+      </p>
+      <p>
+        <strong>Aufr&auml;umen ist hier eine echte Ver&auml;nderung:</strong> Dateien direkt
+        auf dem pers&ouml;nlichen Desktop werden in den Papierkorb verschoben; Unterordner
+        bleiben bestehen. Die Browserwartung kann ebenfalls pers&ouml;nliche Daten
+        zur&uuml;cksetzen. Solche Funktionen geh&ouml;ren ausschlie&szlig;lich in eine
+        bewusst daf&uuml;r vorgesehene Sch&uuml;lerumgebung &ndash; nicht ungepr&uuml;ft auf
+        einen privaten Arbeitsrechner.
+      </p>
+
+      <h4>Einmalige Auftr&auml;ge</h4>
+      <p>
+        F&uuml;r zus&auml;tzliche Arbeiten gibt es getrennte Auftragslisten f&uuml;r SYSTEM
+        und <code>nutzer</code>. Auftr&auml;ge besitzen eine Kennung, einen Skriptnamen und
+        einen SHA-256-Wert. Nach erfolgreicher Ausf&uuml;hrung wird ein lokaler
+        Erledigungsvermerk gespeichert.
+      </p>
+      <p>
+        Das soll unn&ouml;tige Wiederholungen vermeiden. Es ersetzt aber keine sorgf&auml;ltige
+        Gestaltung der Skripte: Ein unterbrochener Auftrag kann erneut laufen und muss damit
+        umgehen k&ouml;nnen.
+      </p>
+      <p>
+        Die Pr&uuml;fsumme vergleicht den heruntergeladenen Inhalt mit der Liste. Sie
+        authentifiziert nicht den Server, wenn Liste und Datei &uuml;ber dieselbe
+        ungesch&uuml;tzte Verbindung kommen.
+      </p>
+
+      <h3>Lokal vorhanden hei&szlig;t nicht st&auml;ndig aktiv</h3>
+      <p>
+        Eine Aufgabe tr&auml;gt den Namen <code>wartung-nutzer-permanent</code>. Bei der
+        Analyse wurde deutlich, dass dieser Name Erkl&auml;rung braucht.
+      </p>
+      <p>Die Aufgabe l&auml;uft nicht st&auml;ndig. Sie startet bei der Anmeldung von <code>nutzer</code> eine lokal vorhandene R&uuml;ckfalll&ouml;sung:</p>
+      <ul>
+        <li>Ist die Server-Startseite nicht erreichbar, wird die lokale Desktopwartung ausgef&uuml;hrt.</li>
+        <li>Ist sie erreichbar, beendet sich der Starter und erwartet, dass die separate Anmeldewartung &uuml;bernimmt.</li>
+      </ul>
+      <p>
+        Hier liegt eine bekannte Grenze: <strong>Ein erreichbarer Server belegt noch keine
+        erfolgreiche Wartung.</strong> Er beweist weder, dass die andere Aufgabe gestartet
+        wurde, noch dass deren Downloads und Arbeitsschritte erfolgreich waren.
+      </p>
+      <p>
+        Auf dem Arbeitsrechner wurden die beiden Anmeldetasks bewusst ohne automatische
+        Trigger f&uuml;r manuelle Tests eingerichtet. Dort darf aus ihrem Namen erst recht
+        kein automatischer Anmeldestart abgeleitet werden.
+      </p>
+
+      <h3>Bedienung im Terminal</h3>
+      <p>F&uuml;r die Wartung ist nicht immer eine grafische Oberfl&auml;che verf&uuml;gbar oder erw&uuml;nscht. Deshalb gibt es einen CMD-Starter mit vier Bereichen:</p>
+      <ol>
+        <li>Aktionen im Kontext <code>mcn</code></li>
+        <li>Aktionen im Kontext <code>nutzer</code></li>
+        <li>AG-Aufgaben-Manager</li>
+        <li>Task-Analyse</li>
+      </ol>
+      <p>
+        Der Starter verlangt das lokale Konto <code>mcn</code> mit erh&ouml;hten Rechten.
+        Der Aufgaben-Manager zeigt die eingerichteten Aufgaben, ihren Zustand und
+        Informationen zum letzten Lauf und bietet Verwaltungsfunktionen.
+      </p>
+      <p>Auch die Fensterfarbe wurde Teil der Bedienung:</p>
+      <ul>
+        <li><strong>Gr&uuml;n:</strong> Der Wartungsprozess l&auml;uft erh&ouml;ht.</li>
+        <li><strong>Blau:</strong> Der Prozess ist nicht erh&ouml;ht &ndash; auch wenn das Konto Mitglied der Administratorengruppe ist.</li>
+      </ul>
+      <p>
+        Die Textanzeige der Rechte bleibt zus&auml;tzlich erhalten. Diese kleine
+        &Auml;nderung entstand aus einer konkreten Fehlersuche: Aufgaben waren eingerichtet,
+        wurden aber in einem nicht erh&ouml;hten Managerfenster nicht wie erwartet angezeigt.
+      </p>
+
+      <h3>PowerShell: Ausf&uuml;hrungsrichtlinie und Rechte sind verschiedene Dinge</h3>
+      <p>
+        Eine weitere Erfahrung betraf PowerShell-Skripte. Die Meldung „Die Ausf&uuml;hrung
+        von Skripts ist deaktiviert“ ist nicht gleichbedeutend mit fehlenden
+        Administratorrechten.
+      </p>
+      <p>PowerShell besitzt eigene Ausf&uuml;hrungsrichtlinien:</p>
+      <ul>
+        <li><code>Restricted</code> blockiert Skriptdateien.</li>
+        <li><code>RemoteSigned</code> erlaubt lokale unsignierte Skripte; als Internetdownload markierte Dateien ben&ouml;tigen eine vertrauensw&uuml;rdige Signatur.</li>
+        <li><code>AllSigned</code> verlangt Signaturen auch f&uuml;r selbst geschriebene lokale Skripte.</li>
+        <li><code>Bypass</code> unterdr&uuml;ckt diese Pr&uuml;fung im betreffenden G&uuml;ltigkeitsbereich.</li>
+      </ul>
+      <p>
+        F&uuml;r einzelne gepr&uuml;fte Wartungsaufrufe kann eine Einstellung nur f&uuml;r
+        den gestarteten Prozess gelten. Eine dauerhafte &Auml;nderung f&uuml;r das
+        Wartungskonto ist eine andere, bewusst zu treffende Entscheidung.
+      </p>
+      <p>
+        Die Ausf&uuml;hrungsrichtlinie ist keine Sicherheitsgrenze und kein Ersatz f&uuml;r
+        eine Codepr&uuml;fung. Auch eine Signatur besagt nicht, dass ein Skript ungef&auml;hrlich ist.
+      </p>
+
+      <h3>Eine Aufgabe als untersuchbares Archiv</h3>
+      <p>
+        Der gr&ouml;&szlig;te neue Baustein ist die <strong>Task-Analyse</strong>. Sie soll
+        nicht blo&szlig; einen Bildschirmzustand festhalten, sondern Material f&uuml;r eine
+        sp&auml;tere Pr&uuml;fung durch Menschen und KI zusammenstellen.
+      </p>
+      <p>Nach Auswahl einer Aufgabe entsteht ein ZIP mit Taskname, Datum und Uhrzeit. Es enth&auml;lt unter anderem:</p>
+      <ul>
+        <li>die vollst&auml;ndige Aufgaben-XML mit Konto, Aktionen, Triggern und Bedingungen;</li>
+        <li>Laufzeitinformationen und das zuletzt gemeldete Ergebnis;</li>
+        <li>erkannte lokale Skripte und zugeh&ouml;rige Protokolle;</li>
+        <li>aktuelle Serverdateien, getrennt von den lokalen Kopien;</li>
+        <li>bekannte Auftragslisten und die darin referenzierten Skripte;</li>
+        <li>auslesbare Datei-, Verzeichnis- und Taskrechte sowie Junction-Ziele;</li>
+        <li>zus&auml;tzliche relevante Taskdefinitionen und m&ouml;gliche Aufrufer als Texttreffer;</li>
+        <li>den verwendeten Sammler selbst;</li>
+        <li>ein Manifest mit Herkunft, Erfassungszeiten und SHA-256-Werten.</li>
+      </ul>
+      <p>
+        F&uuml;r die bekannten Startmen&uuml;- und Open-Shell-Helfer wurde der Sammler
+        au&szlig;erdem um Originalpakete und ZIP-Inhaltsverzeichnisse erweitert. Diese
+        Pakete werden zur Analyse weder entpackt noch ausgef&uuml;hrt.
+      </p>
+      <p><strong>Der Export startet keine Wartung.</strong> Er liest und kopiert Untersuchungsmaterial.</p>
+
+      <h3>Was wir mit den Archiven bereits gelernt haben</h3>
+      <p>
+        Die ersten Archive wurden anschlie&szlig;end au&szlig;erhalb des Sammlers gelesen
+        und ausgewertet. Dabei lie&szlig;en sich sowohl Wartungsverhalten als auch
+        Schw&auml;chen des Analysewerkzeugs erkennen.
+      </p>
+      <p>
+        Anfangs behandelte der Sammler beispielsweise Variablenzuweisungen wie
+        <code>PS1=…</code> als Dateinamen. Auch erzeugte Ausgabedateien wurden teilweise
+        als fehlende Eingaben gemeldet. Diese Fehlalarme f&uuml;hrten zu einer genaueren
+        Unterscheidung von Aufrufkandidaten, gelesenen Dateien, Downloads und Ausgabepfaden.
+      </p>
+      <p>
+        In einem Vergleich sank die Zahl der Sammlerhinweise von 37 auf zw&ouml;lf. Das
+        bedeutet nicht, dass 25 Wartungsfehler behoben wurden: <strong>Verbessert wurde
+        vor allem die Erfassung und Einordnung.</strong>
+      </p>
+      <p>
+        Eine SYSTEM-Analyse zeigte einen anderen, tats&auml;chlichen Ablauf: Die
+        Startmen&uuml;wartung brach an einer Schutzpr&uuml;fung ab, w&auml;hrend weitere
+        Wartungsschritte weiterliefen. Das Gesamtergebnis blieb ein Fehler. Ein einzelner
+        erfolgreicher Teilschritt h&auml;tte diesen Zustand nicht beschrieben.
+      </p>
+      <p>
+        Die ausgewerteten Archive enthielten 13 beziehungsweise 29 im Manifest erfasste
+        Dateien; deren Pr&uuml;fsummen stimmten bei der Pr&uuml;fung &uuml;berein.
+      </p>
+
+      <h3>Schul-PC und Arbeitsrechner sind nicht gleich</h3>
+      <p>
+        Auf den vorgesehenen Schul-PCs soll der gemeinsame Programmordner ein regul&auml;rer
+        Ordner sein. Der Arbeitsrechner verwendet dagegen eine Junction, also eine
+        Ordnerumleitung auf ein anderes Laufwerk.
+      </p>
+      <p>
+        Die Startmen&uuml;wartung lehnt solche Umleitungen bewusst ab, damit Bereinigungen
+        nicht unbeabsichtigt andere Ziele erreichen. Auf dem Arbeitsrechner kollidiert
+        diese Schutzregel mit der vorhandenen Struktur.
+      </p>
+      <p>
+        Die richtige Konsequenz ist nicht, die Pr&uuml;fung nebenbei abzuschalten. Zun&auml;chst
+        muss die Abweichung dokumentiert und eine geeignete Behandlung entschieden werden.
+      </p>
+      <p>
+        F&uuml;r das reine Aktualisieren der beiden Task-Starter gibt es deshalb bereits
+        eine getrennte Arbeitsrechner-Variante. Sie pr&uuml;ft die erwartete Junction und
+        aktualisiert die Dateien am physischen Ziel. Sie richtet keine Aufgaben ein,
+        startet keine Wartung und macht die nachgelagerte Schulwartung nicht automatisch
+        arbeitsrechnertauglich.
+      </p>
+
+      <h3>Archive ohne Browser &uuml;bertragen</h3>
+      <p>
+        Nach einer interaktiven Task-Analyse kann das erstellte Archiv ausdr&uuml;cklich
+        zum lokalen AG-Server hochgeladen werden. Das funktioniert vollst&auml;ndig im
+        Terminal.
+      </p>
+      <p>
+        Erst nach R&uuml;ckdownload und &uuml;bereinstimmender SHA-256-Pr&uuml;fsumme wird
+        der Upload als best&auml;tigt gemeldet. Das lokale Original bleibt erhalten. Dieser
+        Weg wurde bereits mit einem echten Analyseexport erfolgreich genutzt.
+      </p>
+      <p><strong>Analysearchive sind keine &ouml;ffentlichen Projektdateien.</strong> Sie k&ouml;nnen Benutzernamen, Pfade, pers&ouml;nliche Daten oder Geheimnisse enthalten. Vor einer Weitergabe &ndash; insbesondere an einen KI-Dienst &ndash; m&uuml;ssen sie gepr&uuml;ft und erforderlichenfalls bereinigt werden. HTTP &uuml;bertr&auml;gt die Daten unverschl&uuml;sselt; der Upload-Bereich ist keine vertrauliche Archivablage.</p>
+
+      <h3>Grenzen und n&auml;chste Schritte</h3>
+      <p>
+        Der aktuelle Stand ist ein wachsender, praktisch erprobter Werkzeugkasten, keine
+        fertig zertifizierte zentrale Schulverwaltung.
+      </p>
+      <ul>
+        <li><strong>Wartungserfolg statt blo&szlig;er Erreichbarkeit pr&uuml;fen:</strong> Die R&uuml;ckfalll&ouml;sung darf nicht allein aus einer Serverantwort auf erledigte Nutzerwartung schlie&szlig;en.</li>
+        <li><strong>Zielverzeichnisse und Rechte vollst&auml;ndig vorbereiten:</strong> Ein vorgesehener Download kann nur funktionieren, wenn sein Ziel erreichbar und beschreibbar ist.</li>
+        <li><strong>Schul- und Arbeitsrechner sauber trennen:</strong> Testkonfigurationen ohne Trigger d&uuml;rfen nicht mit dem automatischen Schulbetrieb verwechselt werden.</li>
+        <li><strong>Analysegrenzen sichtbar halten:</strong> Berechnete Pfade und dynamische Aufrufe sind statisch nicht immer aufl&ouml;sbar. Ein Texttreffer beweist keinen tats&auml;chlichen Start.</li>
+        <li><strong>Unterschiedliche Zeitst&auml;nde beachten:</strong> Aktuelle Serverdateien belegen nicht, welche Fassung beim letzten protokollierten Lauf ausgef&uuml;hrt wurde. W&auml;hrend eines Exports k&ouml;nnen Protokolle weiterwachsen.</li>
+        <li><strong>Weitere Tests am Zielsystem durchf&uuml;hren:</strong> Isolierte Sammlertests und erfolgreiche Einzelabl&auml;ufe ersetzen keinen vollst&auml;ndigen Test aller Funktionen auf den Sch&uuml;ler-PCs.</li>
+      </ul>
+
+      <h3>Unser Zielbild</h3>
+      <p>
+        Aus „Programme auf den PC bringen“ ist ein umfassenderes Vorhaben geworden:
+        <strong>Software bereitstellen, Wartung nach Kontokontext trennen und das
+        tats&auml;chliche Verhalten nachvollziehbar dokumentieren.</strong>
+      </p>
+      <p>
+        Die Arbeit mit KI unterst&uuml;tzt dabei zwei unterschiedliche Schritte: beim
+        Entwickeln der Werkzeuge und beim anschlie&szlig;enden Pr&uuml;fen ihrer Ergebnisse.
+        Entscheidend sind nicht die Behauptungen eines Skripts oder einer KI, sondern
+        &uuml;berpr&uuml;fbare Definitionen, Originaldateien, Protokolle und klar benannte L&uuml;cken.
+      </p>
+      <p>
+        So soll aus einzelnen Wartungsskripten ein verst&auml;ndlicher Ablauf werden
+        &ndash; f&uuml;r die Menschen, die ihn heute bedienen, und f&uuml;r diejenigen,
+        die ihn sp&auml;ter &uuml;bernehmen.
       </p>
     </section>
 
