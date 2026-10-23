@@ -4,6 +4,16 @@
 
 <!-- PUSH-PROTOKOLL:ENTRY -->
 
+## 23.10.2026, 21:52:08 CEST
+
+- **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
+- **Branch:** <code>main</code>
+- **Commit:** [`ff06b2b`](https://github.com/youngengineers-mrge/youngengineers-mrge.github.io/commit/ff06b2b736e11be4350a41f25e17d07d9340dd8c)
+- **Commit-Beschreibung:** Software-Wartungsartikel in Seite integrieren
+- **Geänderte Dateien:**
+  - <code>themen/software/index.html</code>
+
+
 ## 12.10.2026, 15:44:02 CEST
 
 - **GitHub-Benutzer:** [@Andreas519](https://github.com/Andreas519)
